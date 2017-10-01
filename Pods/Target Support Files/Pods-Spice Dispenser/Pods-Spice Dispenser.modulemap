@@ -1,0 +1,6 @@
+framework module Pods_Spice_Dispenser {
+  umbrella header "Pods-Spice Dispenser-umbrella.h"
+
+  export *
+  module * { export * }
+}

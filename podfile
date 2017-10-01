@@ -1,0 +1,4 @@
+target 'Spice Dispenser' do
+	use_frameworks!
+ 	pod 'lottie-ios'
+end
