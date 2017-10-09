@@ -71,6 +71,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		142A4E5F1F8C310900D2BD14 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				14E872F61F801EC100F85829 /* RecipesViewController.swift */,
+				142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */,
+				142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		142A4E601F8C310C00D2BD14 /* Dispense */ = {
+			isa = PBXGroup;
+			children = (
+				14E872F41F801EAC00F85829 /* DispenseViewController.swift */,
+				142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */,
+				142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */,
+			);
+			path = Dispense;
+			sourceTree = "<group>";
+		};
+		142A4E611F8C310E00D2BD14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
+				142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */,
+				142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		1446020E1F81C6390088A875 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,9 +132,6 @@
 				14AB6CC61F8084A000CF4EF1 /* Lottie Animations */,
 				14E872E01F801AD300F85829 /* Main.storyboard */,
 				14E872E51F801AD300F85829 /* LaunchScreen.storyboard */,
-				142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */,
-				142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */,
-				142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */,
 			);
 			path = "UI & Assets";
 			sourceTree = "<group>";
@@ -133,13 +160,10 @@
 				14E872DA1F801AD300F85829 /* AppDelegate.swift */,
 				14E872F81F801FCB00F85829 /* InitialViewController.swift */,
 				1474CC191F8C1A50001000EA /* MainTabBarController.swift */,
-				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
-				14E872F41F801EAC00F85829 /* DispenseViewController.swift */,
-				14E872F61F801EC100F85829 /* RecipesViewController.swift */,
 				1446020C1F81C07C0088A875 /* BluetoothManager.swift */,
-				142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */,
-				142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */,
-				142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */,
+				142A4E611F8C310E00D2BD14 /* Settings */,
+				142A4E601F8C310C00D2BD14 /* Dispense */,
+				142A4E5F1F8C310900D2BD14 /* Recipe */,
 				144602191F81C9AE0088A875 /* Extensions */,
 				1446020E1F81C6390088A875 /* Strings */,
 				14AB6CC81F8084C600CF4EF1 /* UI & Assets */,
