@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O6J-Xy-2DA" customClass="SpiceNameCell" customModule="Spice_Dispenser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O6J-Xy-2DA" id="TVP-3J-Ijh">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-sQ-Nnr">
+                        <rect key="frame" x="12" y="4.5" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="0CY-q6-Qb3"/>
+                            <constraint firstAttribute="width" constant="35" id="g7N-vI-Kzh"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Spice Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azj-eW-ebw">
+                        <rect key="frame" x="62" y="0.0" width="313" height="43.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Azj-eW-ebw" firstAttribute="leading" secondItem="EDf-sQ-Nnr" secondAttribute="trailing" constant="15" id="3rj-LP-mbg"/>
+                    <constraint firstItem="Azj-eW-ebw" firstAttribute="top" secondItem="TVP-3J-Ijh" secondAttribute="top" id="7xL-XW-7Y9"/>
+                    <constraint firstItem="EDf-sQ-Nnr" firstAttribute="leading" secondItem="TVP-3J-Ijh" secondAttribute="leading" constant="12" id="Lib-cW-9kW"/>
+                    <constraint firstAttribute="trailing" secondItem="Azj-eW-ebw" secondAttribute="trailing" id="Y2D-ED-GZz"/>
+                    <constraint firstItem="EDf-sQ-Nnr" firstAttribute="centerY" secondItem="TVP-3J-Ijh" secondAttribute="centerY" id="YyY-ue-JR7"/>
+                    <constraint firstAttribute="bottom" secondItem="Azj-eW-ebw" secondAttribute="bottom" id="b1u-Kt-4qJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="325" y="243"/>
+        </tableViewCell>
+    </objects>
+</document>

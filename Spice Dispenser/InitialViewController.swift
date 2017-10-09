@@ -15,7 +15,8 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         playLottieAnimation();
-        // performSegue(withIdentifier: "segueToTabBarController", sender: self)
+        // After 20 seconds (or after loading whatever needs to be loaded), perform segue
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(InitialViewController.goToTabBarController), userInfo: nil, repeats: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,6 +33,10 @@ class InitialViewController: UIViewController {
         animationView.loopAnimation = true;
         view.addSubview(animationView)
         animationView.play()
+    }
+    
+    @objc func goToTabBarController() {
+        performSegue(withIdentifier: "segueToTabBarController", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

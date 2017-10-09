@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142A4E541F8C276D00D2BD14 /* SpiceNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */; };
+		142A4E561F8C277A00D2BD14 /* SpiceConfigurationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */; };
+		142A4E581F8C279C00D2BD14 /* RecipeDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */; };
+		142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */; };
+		142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */; };
+		142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */; };
+		1446020D1F81C07C0088A875 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446020C1F81C07C0088A875 /* BluetoothManager.swift */; };
+		144602151F81C94C0088A875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 144602171F81C94C0088A875 /* Localizable.strings */; };
+		1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446021A1F81C9C70088A875 /* StringExtension.swift */; };
+		1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CC191F8C1A50001000EA /* MainTabBarController.swift */; };
 		14AB6CC91F8087F800CF4EF1 /* gears.json in Resources */ = {isa = PBXBuildFile; fileRef = 14AB6CC71F8084AE00CF4EF1 /* gears.json */; };
 		14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872DA1F801AD300F85829 /* AppDelegate.swift */; };
 		14E872E21F801AD300F85829 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E872E01F801AD300F85829 /* Main.storyboard */; };
@@ -21,6 +31,18 @@
 
 /* Begin PBXFileReference section */
 		052155EDCA6D3F5FDDA76903 /* Pods-Spice Dispenser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spice Dispenser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spice Dispenser/Pods-Spice Dispenser.debug.xcconfig"; sourceTree = "<group>"; };
+		142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpiceNameCell.xib; sourceTree = "<group>"; };
+		142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpiceConfigurationCell.xib; sourceTree = "<group>"; };
+		142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDisplayCell.xib; sourceTree = "<group>"; };
+		142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceNameCell.swift; sourceTree = "<group>"; };
+		142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceConfigurationCell.swift; sourceTree = "<group>"; };
+		142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDisplayCell.swift; sourceTree = "<group>"; };
+		1446020C1F81C07C0088A875 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		144602161F81C94C0088A875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		144602181F81C9510088A875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1446021A1F81C9C70088A875 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		1474CC191F8C1A50001000EA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		148DB3441F81A7D700F21F9E /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AB6CC51F8083B200CF4EF1 /* liblottie-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "liblottie-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14AB6CC71F8084AE00CF4EF1 /* gears.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gears.json; sourceTree = "<group>"; };
 		14E872D71F801AD300F85829 /* Spice Dispenser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spice Dispenser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1446020E1F81C6390088A875 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				144602171F81C94C0088A875 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		144602191F81C9AE0088A875 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1446021A1F81C9C70088A875 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		14AB6CC61F8084A000CF4EF1 /* Lottie Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +102,9 @@
 				14AB6CC61F8084A000CF4EF1 /* Lottie Animations */,
 				14E872E01F801AD300F85829 /* Main.storyboard */,
 				14E872E51F801AD300F85829 /* LaunchScreen.storyboard */,
+				142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */,
+				142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */,
+				142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */,
 			);
 			path = "UI & Assets";
 			sourceTree = "<group>";
@@ -91,9 +132,16 @@
 			children = (
 				14E872DA1F801AD300F85829 /* AppDelegate.swift */,
 				14E872F81F801FCB00F85829 /* InitialViewController.swift */,
+				1474CC191F8C1A50001000EA /* MainTabBarController.swift */,
 				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
 				14E872F41F801EAC00F85829 /* DispenseViewController.swift */,
 				14E872F61F801EC100F85829 /* RecipesViewController.swift */,
+				1446020C1F81C07C0088A875 /* BluetoothManager.swift */,
+				142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */,
+				142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */,
+				142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */,
+				144602191F81C9AE0088A875 /* Extensions */,
+				1446020E1F81C6390088A875 /* Strings */,
 				14AB6CC81F8084C600CF4EF1 /* UI & Assets */,
 				14E872E81F801AD300F85829 /* Info.plist */,
 			);
@@ -103,6 +151,7 @@
 		21C943FD8683B53B88E931E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				148DB3441F81A7D700F21F9E /* Lottie.framework */,
 				14AB6CC51F8083B200CF4EF1 /* liblottie-ios.a */,
 				243A697C7DFD63E45BA86790 /* Pods_Spice_Dispenser.framework */,
 			);
@@ -180,10 +229,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144602151F81C94C0088A875 /* Localizable.strings in Resources */,
 				14AB6CC91F8087F800CF4EF1 /* gears.json in Resources */,
 				14E872E71F801AD300F85829 /* LaunchScreen.storyboard in Resources */,
 				14E872E41F801AD300F85829 /* Assets.xcassets in Resources */,
+				142A4E581F8C279C00D2BD14 /* RecipeDisplayCell.xib in Resources */,
+				142A4E561F8C277A00D2BD14 /* SpiceConfigurationCell.xib in Resources */,
 				14E872E21F801AD300F85829 /* Main.storyboard in Resources */,
+				142A4E541F8C276D00D2BD14 /* SpiceNameCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +302,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */,
+				142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */,
+				1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */,
+				1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */,
 				14E872F71F801EC100F85829 /* RecipesViewController.swift in Sources */,
+				142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */,
 				14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */,
 				14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */,
+				1446020D1F81C07C0088A875 /* BluetoothManager.swift in Sources */,
+				142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */,
 				14E872F31F801E9F00F85829 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +318,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		144602171F81C94C0088A875 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				144602161F81C94C0088A875 /* en */,
+				144602181F81C9510088A875 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		14E872E01F801AD300F85829 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +350,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -339,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

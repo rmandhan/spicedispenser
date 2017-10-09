@@ -12,7 +12,7 @@ class DispenseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.navigationItem.title = "app_title".localized
     }
     
     override func didReceiveMemoryWarning() {

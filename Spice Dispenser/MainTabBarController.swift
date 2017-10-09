@@ -1,18 +1,17 @@
 //
-//  RecipesViewController.swift
+//  MainTabBarController.swift
 //  Spice Dispenser
 //
-//  Created by Rakesh Mandhan on 2017-09-30.
+//  Created by Rakesh Mandhan on 2017-10-09.
 //  Copyright © 2017 Rakesh Mandhan. All rights reserved.
 //
 
 import UIKit
 
-class RecipesViewController: UIViewController {
+class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "app_title".localized
     }
     
     override func didReceiveMemoryWarning() {

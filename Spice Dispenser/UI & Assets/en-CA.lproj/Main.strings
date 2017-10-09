@@ -1,0 +1,27 @@
+
+/* Class = "UIViewController"; title = "Dispense"; ObjectID = "8rJ-Kc-sve"; */
+"8rJ-Kc-sve.title" = "Dispense";
+
+/* Class = "UIViewController"; title = "Settings"; ObjectID = "9pv-A4-QxB"; */
+"9pv-A4-QxB.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Third"; ObjectID = "YsQ-kF-mMj"; */
+"YsQ-kF-mMj.title" = "Third";
+
+/* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "First";
+
+/* Class = "UITabBarItem"; title = "Second"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Second";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "iZX-KX-V4g"; */
+"iZX-KX-V4g.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "vXv-Is-AFN"; */
+"vXv-Is-AFN.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "xBY-J7-ar2"; */
+"xBY-J7-ar2.title" = "Item";
+
+/* Class = "UIViewController"; title = "Recipes"; ObjectID = "zo8-0S-kDe"; */
+"zo8-0S-kDe.title" = "Recipes";
