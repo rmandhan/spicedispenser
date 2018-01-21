@@ -20,5 +20,12 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func connectionButtonTapped(_ sender: Any) {
+        // Open ScannerViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let scannerVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController")
+        present(scannerVC, animated: true, completion: nil)
+    }
     
 }
+

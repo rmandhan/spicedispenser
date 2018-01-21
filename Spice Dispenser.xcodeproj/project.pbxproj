@@ -13,7 +13,9 @@
 		142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */; };
 		142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */; };
 		142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */; };
-		1446020D1F81C07C0088A875 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446020C1F81C07C0088A875 /* BluetoothManager.swift */; };
+		143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511152013D2B300FDD399 /* BluetoothSerial.swift */; };
+		143511192013D51800FDD399 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511182013D51800FDD399 /* ScannerViewController.swift */; };
+		1435111E20142BA200FDD399 /* SerialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435111D20142BA100FDD399 /* SerialViewController.swift */; };
 		144602151F81C94C0088A875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 144602171F81C94C0088A875 /* Localizable.strings */; };
 		1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446021A1F81C9C70088A875 /* StringExtension.swift */; };
 		1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CC191F8C1A50001000EA /* MainTabBarController.swift */; };
@@ -37,7 +39,9 @@
 		142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceNameCell.swift; sourceTree = "<group>"; };
 		142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceConfigurationCell.swift; sourceTree = "<group>"; };
 		142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDisplayCell.swift; sourceTree = "<group>"; };
-		1446020C1F81C07C0088A875 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		143511152013D2B300FDD399 /* BluetoothSerial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSerial.swift; sourceTree = "<group>"; };
+		143511182013D51800FDD399 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		1435111D20142BA100FDD399 /* SerialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialViewController.swift; sourceTree = "<group>"; };
 		144602161F81C94C0088A875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		144602181F81C9510088A875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1446021A1F81C9C70088A875 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -97,8 +101,25 @@
 				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
 				142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */,
 				142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */,
+				143511172013D4E800FDD399 /* Scanner */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		143511172013D4E800FDD399 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				143511182013D51800FDD399 /* ScannerViewController.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		1435111C20142B7000FDD399 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				1435111D20142BA100FDD399 /* SerialViewController.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		1446020E1F81C6390088A875 /* Strings */ = {
@@ -160,7 +181,8 @@
 				14E872DA1F801AD300F85829 /* AppDelegate.swift */,
 				14E872F81F801FCB00F85829 /* InitialViewController.swift */,
 				1474CC191F8C1A50001000EA /* MainTabBarController.swift */,
-				1446020C1F81C07C0088A875 /* BluetoothManager.swift */,
+				143511152013D2B300FDD399 /* BluetoothSerial.swift */,
+				1435111C20142B7000FDD399 /* Debug */,
 				142A4E611F8C310E00D2BD14 /* Settings */,
 				142A4E601F8C310C00D2BD14 /* Dispense */,
 				142A4E5F1F8C310900D2BD14 /* Recipe */,
@@ -327,13 +349,15 @@
 			files = (
 				14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */,
 				142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */,
+				143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */,
 				1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */,
 				1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */,
+				1435111E20142BA200FDD399 /* SerialViewController.swift in Sources */,
 				14E872F71F801EC100F85829 /* RecipesViewController.swift in Sources */,
 				142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */,
+				143511192013D51800FDD399 /* ScannerViewController.swift in Sources */,
 				14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */,
 				14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */,
-				1446020D1F81C07C0088A875 /* BluetoothManager.swift in Sources */,
 				142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */,
 				14E872F31F801E9F00F85829 /* SettingsViewController.swift in Sources */,
 			);

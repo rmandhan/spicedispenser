@@ -14,8 +14,7 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        playLottieAnimation();
-        // After 20 seconds (or after loading whatever needs to be loaded), perform segue
+        playLottieAnimation()
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(InitialViewController.goToTabBarController), userInfo: nil, repeats: false)
     }
     
