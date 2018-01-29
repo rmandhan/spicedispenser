@@ -3,6 +3,7 @@
 //  HM10 Serial
 //
 //  Created by Alex on 10-08-15.
+//  Modified by Rakesh Mandhan 2018-01-28
 //  Copyright (c) 2015 Balancing Rock. All rights reserved.
 //
 
@@ -10,19 +11,9 @@ import UIKit
 import CoreBluetooth
 import QuartzCore
 
-/// The option to add a \n or \r or \r\n to the end of the send message
-enum MessageOption: Int {
-    case noLineEnding,
-         newline,
-         carriageReturn,
-         carriageReturnAndNewline
-}
-
-/// The option to add a \n to the end of the received message (to make it more readable)
-enum ReceivedMessageOption: Int {
-    case none,
-         newline
-}
+let SET_LEDS_MESSAGE = "{\"type\":\"leds\",\"colours\":[256,0,123,4,123,88],\"brightness\":[2,5,10,10,7,8]}"
+let SET_NAMES_MESSAGE = "{\"type\":\"names\",\"names\":[\"Red Pepper\",\"Black Pepper\",\"Salt\",\"Turmeric Powder\",\"Curry Powder\",\"Cinnamon\"]}"
+let DISPENSE_MESSAGE = "{\"type\":\"dispense\",\"small\":[1,0,1,0,1,0],\"big\":[0,1,0,4,0,2]}"
 
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
@@ -57,8 +48,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         bottomView.layer.masksToBounds = false
         bottomView.layer.shadowOffset = CGSize(width: 0, height: -1)
         bottomView.layer.shadowRadius = 0
-        bottomView.layer.shadowOpacity = 0.5
-        bottomView.layer.shadowColor = UIColor.gray.cgColor
+
+        mainTextView.layer.borderColor = UIColor.gray.cgColor
+        mainTextView.layer.borderWidth = 0.2
     }
 
     deinit {
@@ -108,6 +100,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     }
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
+        if let e = error {
+            print(e)
+        }
         reloadView()
         dismissKeyboard()
         dismiss(animated: true, completion: nil)
@@ -126,15 +121,11 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if !serial.isReady {
-            let alert = UIAlertController(title: "Not connected", message: "What am I supposed to send this to?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action -> Void in self.dismiss(animated: true, completion: nil) }))
-            present(alert, animated: true, completion: nil)
-            messageField.resignFirstResponder()
-            return true
+            showNotConnectedAlert()
+            return true;
         }
         
-        var msg = messageField.text!
-        msg += "\n"
+        let msg = messageField.text!
         
         // Send the message and clear the textfield
         serial.sendMessageToDevice(msg)
@@ -146,10 +137,42 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         messageField.resignFirstResponder()
     }
     
+    func showNotConnectedAlert() {
+        let alert = UIAlertController(title: "Not connected", message: "What am I supposed to send this to?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action -> Void in self.dismiss(animated: true, completion: nil) }))
+        present(alert, animated: true, completion: nil)
+        messageField.resignFirstResponder()
+    }
+    
     
 // MARK: IBActions
 
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func ledButtonTapped(_ sender: Any) {
+        if serial.isReady {
+            serial.sendMessageToDevice(SET_LEDS_MESSAGE);
+        } else {
+            showNotConnectedAlert()
+        }
+    }
+    
+    @IBAction func nameButtonTapped(_ sender: Any) {
+        if serial.isReady {
+            serial.sendMessageToDevice(SET_NAMES_MESSAGE);
+        } else {
+            showNotConnectedAlert()
+        }
+    }
+    
+    @IBAction func dispenseButtonTapped(_ sender: Any) {
+        if serial.isReady {
+            serial.sendMessageToDevice(DISPENSE_MESSAGE);
+        } else {
+            showNotConnectedAlert()
+        }
+    }
+    
 }

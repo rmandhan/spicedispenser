@@ -3,6 +3,7 @@
 //  HM10 Serial
 //
 //  Created by Alex on 09-08-15.
+//  Modified by Rakesh Mandhan 2018-01-28
 //  Copyright (c) 2017 Hangar42. All rights reserved.
 //
 //
@@ -167,26 +168,36 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     func sendMessageToDevice(_ message: String) {
         guard isReady else { return }
         
-        if let data = message.data(using: String.Encoding.utf8) {
-            connectedPeripheral!.writeValue(data, for: writeCharacteristic!, type: writeType)
+        // Always enclose message in SOT and EOT
+        let newMessage: String = "\u{2}\(message)\u{3}"
+        
+        if let data = newMessage.data(using: String.Encoding.utf8) {
+            let dataLength = data.count
+            let limit = 20 // 20 Bytes data chunk limit
+            // Below limit, send as-is
+            if dataLength <= limit {
+                connectedPeripheral!.writeValue(data, for: writeCharacteristic!, type: writeType)
+                let debugString = String.init(data: data, encoding: String.Encoding.utf8)
+                print("Writing: \(debugString!)")
+            }
+            // Above limit, send in lengths <= 20 bytes
+            else {
+                var len = limit
+                var loc = 0
+                while loc < dataLength - 1 {
+                    let rmdr = dataLength - loc
+                    if rmdr <= len {
+                        len = rmdr
+                    }
+                    let newData = data.subdata(in: Range(loc...(loc+len-1)))
+                    connectedPeripheral!.writeValue(newData, for: writeCharacteristic!, type: writeType)
+                    loc += len
+                    let debugString = String.init(data: newData, encoding: String.Encoding.utf8)
+                    print("Writing: \(debugString!)")
+                }
+            }
         }
     }
-    
-    /// Send an array of bytes to the device
-    func sendBytesToDevice(_ bytes: [UInt8]) {
-        guard isReady else { return }
-        
-        let data = Data(bytes: UnsafePointer<UInt8>(bytes), count: bytes.count)
-        connectedPeripheral!.writeValue(data, for: writeCharacteristic!, type: writeType)
-    }
-    
-    /// Send data to the device
-    func sendDataToDevice(_ data: Data) {
-        guard isReady else { return }
-        
-        connectedPeripheral!.writeValue(data, for: writeCharacteristic!, type: writeType)
-    }
-    
     
     // MARK: CBCentralManagerDelegate functions
 

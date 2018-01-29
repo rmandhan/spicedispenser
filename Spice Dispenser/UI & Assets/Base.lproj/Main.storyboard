@@ -357,7 +357,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrv-qx-TRy">
-                                <rect key="frame" x="0.0" y="72" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="112" width="375" height="511"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -383,6 +383,38 @@
                                     <constraint firstAttribute="trailing" secondItem="zgC-qd-9Jp" secondAttribute="trailing" constant="8" id="wnq-Qg-YeF"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IQf-io-T1h">
+                                <rect key="frame" x="0.0" y="72" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcl-Zz-IiC">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="LEDs"/>
+                                        <connections>
+                                            <action selector="ledButtonTapped:" destination="AEe-fo-bIq" eventType="touchUpInside" id="LIO-ca-pBD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-BJ-P4o">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Names"/>
+                                        <connections>
+                                            <action selector="nameButtonTapped:" destination="AEe-fo-bIq" eventType="touchUpInside" id="tjl-IX-A0m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jaa-TY-dE5">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Dispense"/>
+                                        <connections>
+                                            <action selector="dispenseButtonTapped:" destination="AEe-fo-bIq" eventType="touchUpInside" id="vCg-TD-TM4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tsD-eg-MSF"/>
+                                </constraints>
+                            </stackView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqn-O7-PTF">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -400,14 +432,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ihC-mc-L8Y" firstAttribute="bottom" secondItem="iN4-ne-nV1" secondAttribute="bottom" id="0dn-jW-8FA"/>
+                            <constraint firstItem="ihC-mc-L8Y" firstAttribute="trailing" secondItem="IQf-io-T1h" secondAttribute="trailing" id="1CR-Xi-mXU"/>
+                            <constraint firstItem="IQf-io-T1h" firstAttribute="leading" secondItem="ihC-mc-L8Y" secondAttribute="leading" id="21A-mL-c1J"/>
                             <constraint firstItem="iN4-ne-nV1" firstAttribute="top" secondItem="Hrv-qx-TRy" secondAttribute="bottom" id="4y3-np-IUW"/>
                             <constraint firstItem="oqn-O7-PTF" firstAttribute="top" secondItem="ihC-mc-L8Y" secondAttribute="top" constant="8" id="A4b-iC-b90"/>
                             <constraint firstItem="ihC-mc-L8Y" firstAttribute="trailing" secondItem="Hrv-qx-TRy" secondAttribute="trailing" id="Jqa-4c-eqJ"/>
-                            <constraint firstItem="Hrv-qx-TRy" firstAttribute="top" secondItem="oqn-O7-PTF" secondAttribute="bottom" id="N7L-MU-E5R"/>
                             <constraint firstItem="iN4-ne-nV1" firstAttribute="leading" secondItem="ihC-mc-L8Y" secondAttribute="leading" id="Q84-0n-EpE"/>
                             <constraint firstItem="Hrv-qx-TRy" firstAttribute="leading" secondItem="ihC-mc-L8Y" secondAttribute="leading" id="WXM-tl-04E"/>
+                            <constraint firstItem="IQf-io-T1h" firstAttribute="top" secondItem="oqn-O7-PTF" secondAttribute="bottom" id="ZhN-Fr-o83"/>
                             <constraint firstItem="ihC-mc-L8Y" firstAttribute="trailing" secondItem="iN4-ne-nV1" secondAttribute="trailing" id="okn-dm-klz"/>
                             <constraint firstItem="oqn-O7-PTF" firstAttribute="leading" secondItem="ihC-mc-L8Y" secondAttribute="leading" id="qR3-Cl-9Qn"/>
+                            <constraint firstItem="Hrv-qx-TRy" firstAttribute="top" secondItem="IQf-io-T1h" secondAttribute="bottom" id="u7a-8Q-emf"/>
                             <constraint firstItem="ihC-mc-L8Y" firstAttribute="trailing" secondItem="oqn-O7-PTF" secondAttribute="trailing" id="utU-1c-oGT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ihC-mc-L8Y"/>
@@ -421,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="psC-OT-VPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-239" y="1539"/>
+            <point key="canvasLocation" x="-239.19999999999999" y="1538.6806596701651"/>
         </scene>
     </scenes>
     <resources>
