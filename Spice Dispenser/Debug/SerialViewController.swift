@@ -11,7 +11,7 @@ import UIKit
 import CoreBluetooth
 import QuartzCore
 
-let SET_LEDS_MESSAGE = "{\"type\":\"leds\",\"colours\":[256,0,123,4,123,88],\"brightness\":[2,5,10,10,7,8]}"
+let SET_LEDS_MESSAGE = "{\"type\":\"leds\",\"reds\":[12,0,233,40,120,50],\"greens\":[2,24,255,41,14,50],\"blues\":[16,1,233,45,121,50], \"whites\":[2,5,10,10,7,8]}"
 let SET_NAMES_MESSAGE = "{\"type\":\"names\",\"names\":[\"Red Pepper\",\"Black Pepper\",\"Salt\",\"Turmeric Powder\",\"Curry Powder\",\"Cinnamon\"]}"
 let DISPENSE_MESSAGE = "{\"type\":\"dispense\",\"small\":[1,0,1,0,1,0],\"big\":[0,1,0,4,0,2]}"
 

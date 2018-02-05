@@ -86,7 +86,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98352316269999995" blue="0.93305827720000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="xEp-bg-alj" secondAttribute="trailing" constant="30" id="A9s-AI-yJU"/>
                             <constraint firstItem="xEp-bg-alj" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="OMv-gV-4t9"/>
@@ -99,7 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="MUb-Ni-Khs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -139,7 +139,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98352316269999995" blue="0.93305827720000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="gPy-Sy-C8J" secondAttribute="bottom" id="1wP-Dw-bmx"/>
                             <constraint firstItem="Ecg-t2-Vy3" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="10" id="8OE-3p-VRE"/>
@@ -152,7 +152,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" id="oBO-wU-hYF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -209,7 +209,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98352316269999995" blue="0.93305827720000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6yu-cD-kGn" firstAttribute="leading" secondItem="u3p-37-hLO" secondAttribute="leading" id="40w-zh-Vf0"/>
                             <constraint firstItem="u3p-37-hLO" firstAttribute="trailing" secondItem="6yu-cD-kGn" secondAttribute="trailing" id="90H-DQ-R0S"/>
@@ -218,7 +218,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u3p-37-hLO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Third" image="Third" id="YsQ-kF-mMj"/>
+                    <tabBarItem key="tabBarItem" title="" id="YsQ-kF-mMj"/>
                     <navigationItem key="navigationItem" id="kNF-ex-jAH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOR-zV-JqH" sceneMemberID="firstResponder"/>
@@ -459,8 +459,4 @@
             <point key="canvasLocation" x="-239.19999999999999" y="1538.6806596701651"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Third" width="16" height="16"/>
-        <image name="first" width="30" height="30"/>
-    </resources>
 </document>
