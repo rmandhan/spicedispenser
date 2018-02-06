@@ -96,11 +96,17 @@ extension ScannerViewController: BluetoothSerialDelegate {
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
         refreshButton.isEnabled = true
         tableView.isUserInteractionEnabled = true
+        DispatchQueue.main.async {
+            self.peripherals = []
+            self.tableView.reloadData()
+        }
+        startScanning()
         print("Device disconnect")
     }
     
     func serialIsReady(_ peripheral: CBPeripheral) {
         print("Successfully established connection to device")
+        UserDefaults.standard.set(peripheral.identifier.uuidString, forKey: "LastUUID");
         dismiss(animated: true, completion: nil)
     }
     
@@ -115,6 +121,13 @@ extension ScannerViewController: UITableViewDelegate {
         tableView.isUserInteractionEnabled = false
         stopScanning()
         selectedPeripheral = peripherals[indexPath.row].peripheral
+        if (serial.connectedPeripheral == selectedPeripheral) {
+            serial.disconnect()
+            selectedPeripheral = nil
+            refreshButton.isEnabled = false
+            tableView.isUserInteractionEnabled = false
+            return;
+        }
         serial.connectToPeripheral(selectedPeripheral!)
         refreshButton.isEnabled = false
         activityIndicator.startAnimating()
@@ -133,8 +146,14 @@ extension ScannerViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell")!
-        let label = cell.viewWithTag(1) as! UILabel!
-        label?.text = String.init(format: "%@ (%.0f)", peripherals[indexPath.row].peripheral.name!, peripherals[indexPath.row].RSSI)
+        let nameLabel = cell.viewWithTag(1) as! UILabel!
+        let connectLabel = cell.viewWithTag(2) as! UILabel!
+        nameLabel?.text = String.init(format: "%@ (%.0f)", peripherals[indexPath.row].peripheral.name!, peripherals[indexPath.row].RSSI)
+        if (serial.connectedPeripheral == peripherals[indexPath.row].peripheral) {
+            connectLabel?.text = "Disconnect"
+        } else {
+            connectLabel?.text = "Connect"
+        }
         return cell
     }
 }

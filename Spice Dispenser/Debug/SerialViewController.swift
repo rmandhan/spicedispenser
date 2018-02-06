@@ -11,9 +11,15 @@ import UIKit
 import CoreBluetooth
 import QuartzCore
 
+let SET_SINGLE_LED_MESSAGE = "{\"type\":\"leds-s\",\"jar\":1,\"colour\":[0,24,1,5]}"
 let SET_LEDS_MESSAGE = "{\"type\":\"leds\",\"reds\":[12,0,233,40,120,50],\"greens\":[2,24,255,41,14,50],\"blues\":[16,1,233,45,121,50], \"whites\":[2,5,10,10,7,8]}"
+let SET_SINGLE_NAME_MESSAGE = "{\"type\":\"name\",\"jar\":0,\"name\":\"Red Pepper\"}"
 let SET_NAMES_MESSAGE = "{\"type\":\"names\",\"names\":[\"Red Pepper\",\"Black Pepper\",\"Salt\",\"Turmeric Powder\",\"Curry Powder\",\"Cinnamon\"]}"
 let DISPENSE_MESSAGE = "{\"type\":\"dispense\",\"small\":[1,0,1,0,1,0],\"big\":[0,1,0,4,0,2]}"
+let STATE_MESSAGE = "state"
+
+let rxTextColour = UIColor(red: 33/255, green: 133/255, blue: 92/255, alpha: 1.0)
+let txTextColour = UIColor(red: 34/255, green: 88/255, blue: 128/255, alpha: 1.0)
 
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
@@ -31,7 +37,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         
         serial.delegate = self
         
-        // UI
         mainTextView.text = ""
         reloadView()
         
@@ -94,9 +99,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     func serialDidReceiveString(_ message: String) {
         // Add the received text to the textView
-        mainTextView.text! += message
-        mainTextView.text! += "\n"
-        textViewScrollToBottom()
+        updateTextViewWithString(msg: message + "\n", colour: rxTextColour)
     }
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
@@ -130,6 +133,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         // Send the message and clear the textfield
         serial.sendMessageToDevice(msg)
         messageField.text = ""
+        
+        updateTextViewWithString(msg: msg + "\n", colour: txTextColour)
+        
         return true
     }
     
@@ -144,6 +150,21 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         messageField.resignFirstResponder()
     }
     
+    func sendMessageToDevice(msg: String) {
+        if serial.isReady {
+            serial.sendMessageToDevice(msg)
+        } else {
+            showNotConnectedAlert()
+        }
+    }
+    
+    func updateTextViewWithString(msg: String, colour: UIColor) {
+        let textViewString: NSMutableAttributedString = mainTextView.attributedText.mutableCopy() as! NSMutableAttributedString
+        let colouredMessage = NSMutableAttributedString(string: msg, attributes: [.foregroundColor : colour, .font : UIFont.systemFont(ofSize: 15)])
+        textViewString.append(colouredMessage)
+        mainTextView.attributedText = textViewString
+        textViewScrollToBottom()
+    }
     
 // MARK: IBActions
 
@@ -151,28 +172,33 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func singleLedButtonTapped(_ sender: Any) {
+        sendMessageToDevice(msg: SET_SINGLE_LED_MESSAGE)
+        updateTextViewWithString(msg: SET_SINGLE_LED_MESSAGE + "\n", colour: txTextColour)
+    }
+    
     @IBAction func ledButtonTapped(_ sender: Any) {
-        if serial.isReady {
-            serial.sendMessageToDevice(SET_LEDS_MESSAGE);
-        } else {
-            showNotConnectedAlert()
-        }
+        sendMessageToDevice(msg: SET_LEDS_MESSAGE)
+        updateTextViewWithString(msg: SET_LEDS_MESSAGE + "\n", colour: txTextColour)
+    }
+    
+    @IBAction func singleNameButtonTapped(_ sender: Any) {
+        sendMessageToDevice(msg: SET_SINGLE_NAME_MESSAGE)
+        updateTextViewWithString(msg: SET_SINGLE_NAME_MESSAGE + "\n", colour: txTextColour)
     }
     
     @IBAction func nameButtonTapped(_ sender: Any) {
-        if serial.isReady {
-            serial.sendMessageToDevice(SET_NAMES_MESSAGE);
-        } else {
-            showNotConnectedAlert()
-        }
+        sendMessageToDevice(msg: SET_NAMES_MESSAGE)
+        updateTextViewWithString(msg: SET_NAMES_MESSAGE + "\n", colour: txTextColour)
     }
     
     @IBAction func dispenseButtonTapped(_ sender: Any) {
-        if serial.isReady {
-            serial.sendMessageToDevice(DISPENSE_MESSAGE);
-        } else {
-            showNotConnectedAlert()
-        }
+        sendMessageToDevice(msg: DISPENSE_MESSAGE)
+        updateTextViewWithString(msg: DISPENSE_MESSAGE + "\n", colour: txTextColour)
     }
     
+    @IBAction func stateButtonTapped(_ sender: Any) {
+        sendMessageToDevice(msg: STATE_MESSAGE)
+        updateTextViewWithString(msg: STATE_MESSAGE + "\n", colour: txTextColour)
+    }
 }

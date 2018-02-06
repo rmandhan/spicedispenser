@@ -50,7 +50,7 @@ class MainTabBarController: UITabBarController {
     // Enable detection of shake motion
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            if (serial.isReady) {
+            if serial.isReady {
                 // Show debugger
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let serialVC = storyboard.instantiateViewController(withIdentifier: "SerialViewController")
@@ -67,7 +67,16 @@ class MainTabBarController: UITabBarController {
 
 extension MainTabBarController: BluetoothSerialDelegate {
     func serialDidChangeState() {
-        // Do nothing
+        if serial.isPoweredOn {
+            // Try to connect to last connected bluetooth device by default
+            if let uuid = UserDefaults.standard.string(forKey: "LastUUID"), let spicrUUID = UUID(uuidString: uuid) {
+                let devices = serial.centralManager.retrievePeripherals(withIdentifiers: [spicrUUID])
+                if devices.count > 0 {
+                    serial.connectToPeripheral(devices[0]);
+                    return;
+                }
+            }
+        }
     }
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
