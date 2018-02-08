@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		142A4E541F8C276D00D2BD14 /* SpiceNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */; };
+		1414FDC1202C0B9800C1E145 /* Jar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC0202C0B9800C1E145 /* Jar.swift */; };
+		1414FDC3202C0BCE00C1E145 /* DispenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */; };
+		1414FDC5202C0BDD00C1E145 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC4202C0BDD00C1E145 /* Preset.swift */; };
+		1414FDC7202C11AF00C1E145 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC6202C11AF00C1E145 /* DataManager.swift */; };
+		142A4E541F8C276D00D2BD14 /* JarSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */; };
 		142A4E561F8C277A00D2BD14 /* SpiceConfigurationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */; };
-		142A4E581F8C279C00D2BD14 /* RecipeDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */; };
-		142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */; };
+		142A4E581F8C279C00D2BD14 /* PresetDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E571F8C279C00D2BD14 /* PresetDisplayCell.xib */; };
+		142A4E5A1F8C27EF00D2BD14 /* JarSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E591F8C27EF00D2BD14 /* JarSettingsCell.swift */; };
 		142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */; };
-		142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */; };
+		142A4E5E1F8C280F00D2BD14 /* PresetDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142A4E5D1F8C280F00D2BD14 /* PresetDisplayCell.swift */; };
 		143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511152013D2B300FDD399 /* BluetoothSerial.swift */; };
 		143511192013D51800FDD399 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511182013D51800FDD399 /* ScannerViewController.swift */; };
 		1435111E20142BA200FDD399 /* SerialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435111D20142BA100FDD399 /* SerialViewController.swift */; };
@@ -26,19 +30,23 @@
 		14E872E71F801AD300F85829 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E872E51F801AD300F85829 /* LaunchScreen.storyboard */; };
 		14E872F31F801E9F00F85829 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F21F801E9F00F85829 /* SettingsViewController.swift */; };
 		14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F41F801EAC00F85829 /* DispenseViewController.swift */; };
-		14E872F71F801EC100F85829 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F61F801EC100F85829 /* RecipesViewController.swift */; };
+		14E872F71F801EC100F85829 /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F61F801EC100F85829 /* PresetsViewController.swift */; };
 		14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F81F801FCB00F85829 /* InitialViewController.swift */; };
 		26429BF8E6BE4E675150AB7B /* Pods_Spice_Dispenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243A697C7DFD63E45BA86790 /* Pods_Spice_Dispenser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		052155EDCA6D3F5FDDA76903 /* Pods-Spice Dispenser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spice Dispenser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spice Dispenser/Pods-Spice Dispenser.debug.xcconfig"; sourceTree = "<group>"; };
-		142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpiceNameCell.xib; sourceTree = "<group>"; };
+		1414FDC0202C0B9800C1E145 /* Jar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jar.swift; sourceTree = "<group>"; };
+		1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenseItem.swift; sourceTree = "<group>"; };
+		1414FDC4202C0BDD00C1E145 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		1414FDC6202C11AF00C1E145 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JarSettingsCell.xib; sourceTree = "<group>"; };
 		142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpiceConfigurationCell.xib; sourceTree = "<group>"; };
-		142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDisplayCell.xib; sourceTree = "<group>"; };
-		142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceNameCell.swift; sourceTree = "<group>"; };
+		142A4E571F8C279C00D2BD14 /* PresetDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresetDisplayCell.xib; sourceTree = "<group>"; };
+		142A4E591F8C27EF00D2BD14 /* JarSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarSettingsCell.swift; sourceTree = "<group>"; };
 		142A4E5B1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiceConfigurationCell.swift; sourceTree = "<group>"; };
-		142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDisplayCell.swift; sourceTree = "<group>"; };
+		142A4E5D1F8C280F00D2BD14 /* PresetDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetDisplayCell.swift; sourceTree = "<group>"; };
 		143511152013D2B300FDD399 /* BluetoothSerial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSerial.swift; sourceTree = "<group>"; };
 		143511182013D51800FDD399 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		1435111D20142BA100FDD399 /* SerialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +65,7 @@
 		14E872E81F801AD300F85829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14E872F21F801E9F00F85829 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		14E872F41F801EAC00F85829 /* DispenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenseViewController.swift; sourceTree = "<group>"; };
-		14E872F61F801EC100F85829 /* RecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		14E872F61F801EC100F85829 /* PresetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewController.swift; sourceTree = "<group>"; };
 		14E872F81F801FCB00F85829 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		243A697C7DFD63E45BA86790 /* Pods_Spice_Dispenser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spice_Dispenser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90330B000758B1B0B18AAC62 /* Pods-Spice Dispenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spice Dispenser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spice Dispenser/Pods-Spice Dispenser.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,14 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		142A4E5F1F8C310900D2BD14 /* Recipe */ = {
+		1414FDBF202C0AEC00C1E145 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				14E872F61F801EC100F85829 /* RecipesViewController.swift */,
-				142A4E5D1F8C280F00D2BD14 /* RecipeDisplayCell.swift */,
-				142A4E571F8C279C00D2BD14 /* RecipeDisplayCell.xib */,
+				1414FDC0202C0B9800C1E145 /* Jar.swift */,
+				1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */,
+				1414FDC4202C0BDD00C1E145 /* Preset.swift */,
 			);
-			path = Recipe;
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		142A4E5F1F8C310900D2BD14 /* Presets */ = {
+			isa = PBXGroup;
+			children = (
+				14E872F61F801EC100F85829 /* PresetsViewController.swift */,
+				142A4E5D1F8C280F00D2BD14 /* PresetDisplayCell.swift */,
+				142A4E571F8C279C00D2BD14 /* PresetDisplayCell.xib */,
+			);
+			path = Presets;
 			sourceTree = "<group>";
 		};
 		142A4E601F8C310C00D2BD14 /* Dispense */ = {
@@ -99,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
-				142A4E591F8C27EF00D2BD14 /* SpiceNameCell.swift */,
-				142A4E531F8C276D00D2BD14 /* SpiceNameCell.xib */,
+				142A4E591F8C27EF00D2BD14 /* JarSettingsCell.swift */,
+				142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */,
 				143511172013D4E800FDD399 /* Scanner */,
 			);
 			path = Settings;
@@ -179,13 +197,15 @@
 			isa = PBXGroup;
 			children = (
 				14E872DA1F801AD300F85829 /* AppDelegate.swift */,
+				143511152013D2B300FDD399 /* BluetoothSerial.swift */,
+				1414FDC6202C11AF00C1E145 /* DataManager.swift */,
 				14E872F81F801FCB00F85829 /* InitialViewController.swift */,
 				1474CC191F8C1A50001000EA /* MainTabBarController.swift */,
-				143511152013D2B300FDD399 /* BluetoothSerial.swift */,
 				1435111C20142B7000FDD399 /* Debug */,
 				142A4E611F8C310E00D2BD14 /* Settings */,
 				142A4E601F8C310C00D2BD14 /* Dispense */,
-				142A4E5F1F8C310900D2BD14 /* Recipe */,
+				142A4E5F1F8C310900D2BD14 /* Presets */,
+				1414FDBF202C0AEC00C1E145 /* Data Models */,
 				144602191F81C9AE0088A875 /* Extensions */,
 				1446020E1F81C6390088A875 /* Strings */,
 				14AB6CC81F8084C600CF4EF1 /* UI & Assets */,
@@ -279,10 +299,10 @@
 				14AB6CC91F8087F800CF4EF1 /* gears.json in Resources */,
 				14E872E71F801AD300F85829 /* LaunchScreen.storyboard in Resources */,
 				14E872E41F801AD300F85829 /* Assets.xcassets in Resources */,
-				142A4E581F8C279C00D2BD14 /* RecipeDisplayCell.xib in Resources */,
+				142A4E581F8C279C00D2BD14 /* PresetDisplayCell.xib in Resources */,
 				142A4E561F8C277A00D2BD14 /* SpiceConfigurationCell.xib in Resources */,
 				14E872E21F801AD300F85829 /* Main.storyboard in Resources */,
-				142A4E541F8C276D00D2BD14 /* SpiceNameCell.xib in Resources */,
+				142A4E541F8C276D00D2BD14 /* JarSettingsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,17 +368,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */,
+				1414FDC1202C0B9800C1E145 /* Jar.swift in Sources */,
 				142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */,
 				143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */,
 				1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */,
 				1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */,
 				1435111E20142BA200FDD399 /* SerialViewController.swift in Sources */,
-				14E872F71F801EC100F85829 /* RecipesViewController.swift in Sources */,
-				142A4E5E1F8C280F00D2BD14 /* RecipeDisplayCell.swift in Sources */,
+				1414FDC3202C0BCE00C1E145 /* DispenseItem.swift in Sources */,
+				14E872F71F801EC100F85829 /* PresetsViewController.swift in Sources */,
+				1414FDC7202C11AF00C1E145 /* DataManager.swift in Sources */,
+				142A4E5E1F8C280F00D2BD14 /* PresetDisplayCell.swift in Sources */,
+				1414FDC5202C0BDD00C1E145 /* Preset.swift in Sources */,
 				143511192013D51800FDD399 /* ScannerViewController.swift in Sources */,
 				14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */,
 				14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */,
-				142A4E5A1F8C27EF00D2BD14 /* SpiceNameCell.swift in Sources */,
+				142A4E5A1F8C27EF00D2BD14 /* JarSettingsCell.swift in Sources */,
 				14E872F31F801E9F00F85829 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

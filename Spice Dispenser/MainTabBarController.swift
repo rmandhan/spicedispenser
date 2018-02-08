@@ -38,8 +38,8 @@ class MainTabBarController: UITabBarController {
                 barItems[0].image = UIImage(named: "Settings")
                 barItems[1].title = "dispense_tab".localized
                 barItems[1].image = UIImage(named: "Dispense")
-                barItems[2].title = "recipes_tab".localized
-                barItems[2].image = UIImage(named: "Recipes")
+                barItems[2].title = "presets_tab".localized
+                barItems[2].image = UIImage(named: "Presets")
             } else {
                 assertionFailure("Something is wrong, there are more or less than 3 tab bar items");
             }

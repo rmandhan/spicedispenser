@@ -1,5 +1,5 @@
 //
-//  RecipeDisplayCell.swift
+//  JarSettingsCell.swift
 //  Spice Dispenser
 //
 //  Created by Rakesh Mandhan on 2017-10-09.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipeDisplayCell: UITableViewCell {
+class JarSettingsCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

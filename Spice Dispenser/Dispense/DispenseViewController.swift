@@ -8,6 +8,8 @@
 
 import UIKit
 
+let SpiceConfigCellIdentifier = "Spice Config Cell"
+
 class DispenseViewController: UIViewController {
     
     @IBOutlet weak var topButtonsStackView: UIStackView!
@@ -18,6 +20,10 @@ class DispenseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "app_title".localized
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,5 +35,28 @@ class DispenseViewController: UIViewController {
     }
     
     @IBAction func dispenseButtonTapped(_ sender: Any) {
+    }
+}
+
+extension DispenseViewController : UITableViewDelegate {
+    
+}
+
+extension DispenseViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return NUM_JARS
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SpiceConfigCellIdentifier) as! SpiceConfigurationCell
+        return cell;
     }
 }

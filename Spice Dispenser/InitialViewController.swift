@@ -6,6 +6,8 @@
 //  Copyright © 2017 Rakesh Mandhan. All rights reserved.
 //
 
+/* NOTE BEING USED RIGHT NOW */
+
 import UIKit
 import Lottie
 

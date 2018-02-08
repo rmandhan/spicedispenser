@@ -1,5 +1,5 @@
 //
-//  SpiceNameCell.swift
+//  PresetDisplayCell.swift
 //  Spice Dispenser
 //
 //  Created by Rakesh Mandhan on 2017-10-09.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpiceNameCell: UITableViewCell {
+class PresetDisplayCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

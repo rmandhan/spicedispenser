@@ -15,6 +15,8 @@ class SpiceConfigurationCell: UITableViewCell {
     @IBOutlet weak var volumeSelectionButton: UIButton!
     @IBOutlet weak var quantityStepper: UIStepper!
     
+    var jarNumber: Int = 0;
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
