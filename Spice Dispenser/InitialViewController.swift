@@ -11,11 +11,21 @@ import Lottie
 
 class InitialViewController: UIViewController {
     
+    var animationView: LOTAnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupLottieAnimation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         playLottieAnimation()
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(InitialViewController.goToTabBarController), userInfo: nil, repeats: false)
     }
     
     override func didReceiveMemoryWarning() {
@@ -23,15 +33,18 @@ class InitialViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func playLottieAnimation() {
-        // TODO: Scale according to the screen
-        let animationView = LOTAnimationView(name: "gears")
-        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+    func setupLottieAnimation() {
+        animationView = LOTAnimationView(name: "gears")
+        animationView.frame = CGRect(x: 0, y: 0, width: 220, height: 220)
         animationView.center = view.center
         animationView.contentMode = .scaleAspectFill
-        animationView.loopAnimation = true;
+        animationView.loopAnimation = true
         view.addSubview(animationView)
+    }
+    
+    @objc func playLottieAnimation() {
         animationView.play()
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(InitialViewController.goToTabBarController), userInfo: nil, repeats: false)
     }
     
     @objc func goToTabBarController() {

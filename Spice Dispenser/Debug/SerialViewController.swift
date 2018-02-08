@@ -15,7 +15,7 @@ let SET_SINGLE_LED_MESSAGE = "{\"type\":\"leds-s\",\"jar\":1,\"colour\":[0,24,1,
 let SET_LEDS_MESSAGE = "{\"type\":\"leds\",\"reds\":[12,0,233,40,120,50],\"greens\":[2,24,255,41,14,50],\"blues\":[16,1,233,45,121,50], \"whites\":[2,5,10,10,7,8]}"
 let SET_SINGLE_NAME_MESSAGE = "{\"type\":\"name\",\"jar\":0,\"name\":\"Red Pepper\"}"
 let SET_NAMES_MESSAGE = "{\"type\":\"names\",\"names\":[\"Red Pepper\",\"Black Pepper\",\"Salt\",\"Turmeric Powder\",\"Curry Powder\",\"Cinnamon\"]}"
-let DISPENSE_MESSAGE = "{\"type\":\"dispense\",\"small\":[1,0,1,0,1,0],\"big\":[0,1,0,4,0,2]}"
+let DISPENSE_MESSAGE = "{\"type\":\"dispense\",\"small\":[4,0,1,0,1,0],\"big\":[2,1,0,4,0,2]}"
 let STATE_MESSAGE = "state"
 
 let rxTextColour = UIColor(red: 33/255, green: 133/255, blue: 92/255, alpha: 1.0)

@@ -14,8 +14,9 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBluetooth()
-        self.becomeFirstResponder()
+        becomeFirstResponder()
         configureTabBar()
+        selectedIndex = 1;
     }
     
     override func didReceiveMemoryWarning() {

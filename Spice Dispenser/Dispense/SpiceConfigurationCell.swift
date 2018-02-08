@@ -10,6 +10,11 @@ import UIKit
 
 class SpiceConfigurationCell: UITableViewCell {
 
+    @IBOutlet weak var spiceNameLabel: UILabel!
+    @IBOutlet weak var spiceQuantityLabel: UILabel!
+    @IBOutlet weak var volumeSelectionButton: UIButton!
+    @IBOutlet weak var quantityStepper: UIStepper!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +26,10 @@ class SpiceConfigurationCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func volumeButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func stepperValueChanged(_ sender: Any) {
+    }
+    
 }
