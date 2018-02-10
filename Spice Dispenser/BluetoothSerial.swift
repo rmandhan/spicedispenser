@@ -199,6 +199,20 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         }
     }
     
+    func dispense(items: [DispenseItem]) -> Bool {
+        guard isReady else { return false }
+        // Create message from array of dispense items
+        // Send message to device
+        return true
+    }
+    
+    func setLights(jar: [Jar]) -> Bool {
+        guard isReady else { return false }
+        // Set lights using Jar data, by creating JSON data
+        // Send message to device
+        return true
+    }
+    
     // MARK: CBCentralManagerDelegate functions
 
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {

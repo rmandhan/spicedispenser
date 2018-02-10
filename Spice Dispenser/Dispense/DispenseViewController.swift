@@ -17,6 +17,8 @@ class DispenseViewController: UIViewController {
     @IBOutlet weak var dispenseButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var dispenseData: [DispenseItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "app_title".localized
@@ -24,6 +26,7 @@ class DispenseViewController: UIViewController {
         tableView.dataSource = self
         let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
+        dispenseData = DataManager.shared.dispenseItems
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,9 +35,23 @@ class DispenseViewController: UIViewController {
     }
     
     @IBAction func presetsButtonTapped(_ sender: Any) {
+        DataManager.shared.addPresetFromDispenseData(data: dispenseData)
+        // Show popup
     }
     
     @IBAction func dispenseButtonTapped(_ sender: Any) {
+        // Attemp to dispense
+        if serial.dispense(items: dispenseData) {
+            // Show animaation for funzies
+        } else {
+            // Show popup
+        }
+    }
+}
+
+extension DispenseViewController : SpiceConfigurationDelegate {
+    func dispenseItemDidUpdate(item: DispenseItem) {
+        dispenseData[item.jar - 1] = item
     }
 }
 
@@ -48,7 +65,7 @@ extension DispenseViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NUM_JARS
+        return dispenseData.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,6 +74,8 @@ extension DispenseViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SpiceConfigCellIdentifier) as! SpiceConfigurationCell
+        cell.data = dispenseData[indexPath.row]
+        cell.delegate = self
         return cell;
     }
 }

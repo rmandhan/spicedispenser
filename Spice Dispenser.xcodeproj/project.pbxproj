@@ -32,6 +32,7 @@
 		14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F41F801EAC00F85829 /* DispenseViewController.swift */; };
 		14E872F71F801EC100F85829 /* PresetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F61F801EC100F85829 /* PresetsViewController.swift */; };
 		14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E872F81F801FCB00F85829 /* InitialViewController.swift */; };
+		14F02B6D202F7EF600073D06 /* JarSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F02B6C202F7EF600073D06 /* JarSettingsViewController.swift */; };
 		26429BF8E6BE4E675150AB7B /* Pods_Spice_Dispenser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243A697C7DFD63E45BA86790 /* Pods_Spice_Dispenser.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		14E872F41F801EAC00F85829 /* DispenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenseViewController.swift; sourceTree = "<group>"; };
 		14E872F61F801EC100F85829 /* PresetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsViewController.swift; sourceTree = "<group>"; };
 		14E872F81F801FCB00F85829 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		14F02B6C202F7EF600073D06 /* JarSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarSettingsViewController.swift; sourceTree = "<group>"; };
 		243A697C7DFD63E45BA86790 /* Pods_Spice_Dispenser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spice_Dispenser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90330B000758B1B0B18AAC62 /* Pods-Spice Dispenser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spice Dispenser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spice Dispenser/Pods-Spice Dispenser.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				14E872F21F801E9F00F85829 /* SettingsViewController.swift */,
+				14F02B6C202F7EF600073D06 /* JarSettingsViewController.swift */,
 				142A4E591F8C27EF00D2BD14 /* JarSettingsCell.swift */,
 				142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */,
 				143511172013D4E800FDD399 /* Scanner */,
@@ -380,6 +383,7 @@
 				142A4E5E1F8C280F00D2BD14 /* PresetDisplayCell.swift in Sources */,
 				1414FDC5202C0BDD00C1E145 /* Preset.swift in Sources */,
 				143511192013D51800FDD399 /* ScannerViewController.swift in Sources */,
+				14F02B6D202F7EF600073D06 /* JarSettingsViewController.swift in Sources */,
 				14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */,
 				14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */,
 				142A4E5A1F8C27EF00D2BD14 /* JarSettingsCell.swift in Sources */,
