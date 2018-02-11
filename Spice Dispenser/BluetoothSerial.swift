@@ -11,6 +11,8 @@
 import UIKit
 import CoreBluetooth
 
+let dispenseStateKey = "state"
+
 /// Global serial handler, don't forget to initialize it with init(delgate:)
 var serial: BluetoothSerial!
 
@@ -91,6 +93,12 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
                    writeCharacteristic != nil
         }
     }
+    
+    /// This is essentially a lock for sending data, we must make sure the dispenser is in state 0 before sending data
+    var dispenserIsBusy: Bool = false
+    
+    /// Timer for checking dispense state
+    var stateTimer: Timer!
     
     /// Whether this serial is looking for advertising peripherals
     var isScanning: Bool {
@@ -201,16 +209,45 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     
     func dispense(items: [DispenseItem]) -> Bool {
         guard isReady else { return false }
-        // Create message from array of dispense items
-        // Send message to device
+        
+        if let msg = JSONManager.shared.dispense(items: items) {
+            sendMessageToDevice(msg)
+        } else {
+            print("Dispense JSON creation failure, unable to send message to device")
+            return false
+        }
+        
         return true
     }
     
-    func setLights(jar: [Jar]) -> Bool {
+    func setLights(jar: Jar) -> Bool {
         guard isReady else { return false }
-        // Set lights using Jar data, by creating JSON data
-        // Send message to device
+    
+        if let msg = JSONManager.shared.lights(jar: jar) {
+            sendMessageToDevice(msg)
+        } else {
+            print("Lights JSON creation failure, unable to send message to device")
+            return false
+        }
+    
         return true
+    }
+    
+    func setSpiceName(jar: Jar) -> Bool {
+        guard isReady else { return false }
+        
+        if let msg = JSONManager.shared.spiceName(jar: jar) {
+            sendMessageToDevice(msg)
+        } else {
+            print("Spice Name JSON creation failure, unable to send message to device")
+            return false
+        }
+        
+        return true
+    }
+    
+    @objc func pollDispenser() {
+        sendMessageToDevice(dispenseStateKey)
     }
     
     // MARK: CBCentralManagerDelegate functions
@@ -245,6 +282,11 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
         // send it to the delegate
         delegate.serialDidDisconnect(peripheral, error: error as NSError?)
+        
+        // invalidate timer
+        stateTimer.invalidate()
+        stateTimer = nil
+        dispenserIsBusy = false
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -288,6 +330,9 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
                 
                 // notify the delegate we're ready for communication
                 delegate.serialIsReady(peripheral)
+                
+                // start the timer for checking dispenser state (every 2 seconds)
+                stateTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(pollDispenser), userInfo: nil, repeats: true)
             }
         }
     }
@@ -304,8 +349,15 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
         // then the string
         if let str = String(data: data!, encoding: String.Encoding.utf8) {
             delegate.serialDidReceiveString(str)
+            // Check dispenser state - that's the only thing the dispenser ever sends
+            print("Dispense state: \(str)")
+            if str == "0" {
+                dispenserIsBusy = false
+            } else {
+                dispenserIsBusy = true
+            }
         } else {
-            //print("Received an invalid string!") uncomment for debugging
+            print("Received an invalid string!")
         }
         
         // now the bytes array

@@ -8,9 +8,17 @@
 
 import Foundation
 
-let JarsDataKey = "JarsData"
-let PresetsDataKey = "PresetsData"
-let DispenseDatakey = "DispenseData"
+enum DataKey: String {
+    case jars = "JarsData"
+    case presets = "PresetsData"
+    case dispense = "DispenseData"
+}
+
+extension Notification.Name {
+    static let jarsUpdated = Notification.Name("JarsUpdated")
+    static let spiceConfigUpdated = Notification.Name("SpiceConfigUpdated")
+    static let presetsUpdated = Notification.Name("PresetsUpdated")
+}
 
 class DataManager {
     
@@ -29,66 +37,99 @@ class DataManager {
     }
     
     func initializeData() {
-        if let jarsData = defaults.object(forKey: JarsDataKey) as? [Jar] {
+        if let jarsData = defaults.object(forKey: DataKey.jars.rawValue) as? [Jar] {
             jars = jarsData
         } else {
-            // Initialize default values - Note: must match defaults on the dispenser itself
-            for i in 1...NUM_JARS {
-                let jar = Jar(jar: i, spiceName: "Jar \(i)", lightsColour: nil, image: nil)
-                jars.append(jar)
-            }
+            createDefaultJars()
         }
         
-        if let presetsData = defaults.object(forKey: PresetsDataKey) as? [Preset] {
+        if let presetsData = defaults.object(forKey: DataKey.presets.rawValue) as? [Preset] {
             presets = presetsData
         } else {
             // No default values to intialize
         }
         
-        if let dispenseData = defaults.object(forKey: DispenseDatakey) as? [DispenseItem] {
+        if let dispenseData = defaults.object(forKey: DataKey.dispense.rawValue) as? [DispenseItem] {
             dispenseItems = dispenseData
         } else {
-            // Create empty dispense items
-            for i in 1...NUM_JARS {
-                let dItem = DispenseItem(jar: i, spiceName: jars[i - 1].spiceName, smalls: 0, bigs: 0)
-                dispenseItems.append(dItem)
-            }
+            createDefaultDispenseData()
+        }
+    }
+    
+    func createDefaultJars() {
+        // Initialize default values - Note: must match defaults on the dispenser itself
+        for i in 1...NUM_JARS {
+            let jar = Jar(num: i, spiceName: "Spice \(i)", lightsColour: nil, image: nil)
+            jars.append(jar)
+        }
+    }
+    
+    func createDefaultDispenseData() {
+        // Create empty dispense items
+        for i in 1...NUM_JARS {
+            let dItem = DispenseItem(jar: i, spiceName: jars[i - 1].spiceName, smalls: 0, bigs: 0)
+            dispenseItems.append(dItem)
         }
     }
     
     func saveJarData(jarData: [Jar]) {
-        // Save data
-        // Send notification so dispense VC can update the jar names
+        self.jars = jarData
+        defaults.set(jarData, forKey: DataKey.jars.rawValue)
+        NotificationCenter.default.post(name: .jarsUpdated, object: nil)
     }
     
     func saveDispenseConfig(config: [DispenseItem]) {
-        
+        self.dispenseItems = config
+        defaults.set(config, forKey: DataKey.dispense.rawValue)
+        NotificationCenter.default.post(name: .spiceConfigUpdated, object: nil)
     }
     
     func addPresetFromDispenseData(data: [DispenseItem]) {
-        // Save data
-        // Send notification so preset VC can update it's list of presets
+        var spiceNames = [String]()
+        var smalls = [Int]()
+        var bigs = [Int]()
+        var newPreset: Preset!
+        for i in 0...NUM_JARS {
+            spiceNames.append(data[i].spiceName)
+            smalls.append(data[i].smalls)
+            bigs.append(data[i].bigs)
+        }
+        newPreset = Preset(spiceNames: spiceNames, smalls: smalls, bigs: bigs)
+        presets.append(newPreset)
+        defaults.set(presets, forKey: DataKey.presets.rawValue)
+        NotificationCenter.default.post(name: .presetsUpdated, object: nil)
     }
     
-    func removePreset(preset: Preset) {
-        // Save data
+    func removePresetAt(index: Int) {
+        presets.remove(at: index)
+        defaults.set(presets, forKey: DataKey.presets.rawValue)
+        NotificationCenter.default.post(name: .presetsUpdated, object: nil)
     }
     
     func resetJarData() {
-        // Save data
-        // Send notification
+        jars = [Jar]()
+        createDefaultJars()
+        defaults.set(jars, forKey: DataKey.jars.rawValue)
+        NotificationCenter.default.post(name: .jarsUpdated, object: nil)
     }
     
     func resetDispenseConfig() {
-        
+        dispenseItems = [DispenseItem]()
+        createDefaultDispenseData()
+        defaults.set(dispenseItems, forKey: DataKey.dispense.rawValue)
+        NotificationCenter.default.post(name: .spiceConfigUpdated, object: nil)
     }
     
-    func reestPreests() {
-        
+    func resetPresets() {
+        presets = [Preset]()
+        defaults.set(presets, forKey: DataKey.presets.rawValue)
+        NotificationCenter.default.post(name: .presetsUpdated, object: nil)
     }
     
     func resetAllData() {
-        // Save data
-        // Send notification to all VCs so they can update their data
+        resetJarData()
+        resetDispenseConfig()
+        resetPresets()
     }
+
 }

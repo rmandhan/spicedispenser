@@ -11,6 +11,7 @@
 		1414FDC3202C0BCE00C1E145 /* DispenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */; };
 		1414FDC5202C0BDD00C1E145 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC4202C0BDD00C1E145 /* Preset.swift */; };
 		1414FDC7202C11AF00C1E145 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC6202C11AF00C1E145 /* DataManager.swift */; };
+		14281359203005EB00AC7101 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14281358203005EB00AC7101 /* JSONManager.swift */; };
 		142A4E541F8C276D00D2BD14 /* JarSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */; };
 		142A4E561F8C277A00D2BD14 /* SpiceConfigurationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */; };
 		142A4E581F8C279C00D2BD14 /* PresetDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142A4E571F8C279C00D2BD14 /* PresetDisplayCell.xib */; };
@@ -42,6 +43,7 @@
 		1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenseItem.swift; sourceTree = "<group>"; };
 		1414FDC4202C0BDD00C1E145 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		1414FDC6202C11AF00C1E145 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		14281358203005EB00AC7101 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		142A4E531F8C276D00D2BD14 /* JarSettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JarSettingsCell.xib; sourceTree = "<group>"; };
 		142A4E551F8C277A00D2BD14 /* SpiceConfigurationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpiceConfigurationCell.xib; sourceTree = "<group>"; };
 		142A4E571F8C279C00D2BD14 /* PresetDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresetDisplayCell.xib; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				14E872DA1F801AD300F85829 /* AppDelegate.swift */,
 				143511152013D2B300FDD399 /* BluetoothSerial.swift */,
 				1414FDC6202C11AF00C1E145 /* DataManager.swift */,
+				14281358203005EB00AC7101 /* JSONManager.swift */,
 				14E872F81F801FCB00F85829 /* InitialViewController.swift */,
 				1474CC191F8C1A50001000EA /* MainTabBarController.swift */,
 				1435111C20142B7000FDD399 /* Debug */,
@@ -372,6 +375,7 @@
 			files = (
 				14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */,
 				1414FDC1202C0B9800C1E145 /* Jar.swift in Sources */,
+				14281359203005EB00AC7101 /* JSONManager.swift in Sources */,
 				142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */,
 				143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */,
 				1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */,

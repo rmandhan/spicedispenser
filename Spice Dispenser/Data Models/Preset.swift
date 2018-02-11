@@ -9,10 +9,10 @@
 class Preset {
     
     let spiceNames: [String]
-    let smallQuantities: [Double]
-    let bigQuantities: [Double]
+    let smallQuantities: [Int]
+    let bigQuantities: [Int]
     
-    init(spiceNames: [String], smalls: [Double], bigs: [Double]) {
+    init(spiceNames: [String], smalls: [Int], bigs: [Int]) {
         self.spiceNames = spiceNames
         self.smallQuantities = smalls
         self.bigQuantities = bigs

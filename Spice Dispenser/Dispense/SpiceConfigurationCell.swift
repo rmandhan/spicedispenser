@@ -8,11 +8,6 @@
 
 import UIKit
 
-let teaSpoonStep = 0.25
-let tableSpoonStep = 0.50
-let teaSpoonMax = 15.00
-let tableSpoonMax = 5.00
-
 enum DispenseVolume {
     case teaSpoon
     case tableSpoon

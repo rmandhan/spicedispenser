@@ -10,13 +10,13 @@ import UIKit
 
 class Jar {
     
-    let jar: Int  // Not 0 indexed
+    let num: Int  // Not 0 indexed
     var spiceName: String
     var lightsColour: UIColor
     var image: UIImage
     
-    init(jar: Int, spiceName: String, lightsColour: UIColor?, image: UIImage?) {
-        self.jar = jar
+    init(num: Int, spiceName: String, lightsColour: UIColor?, image: UIImage?) {
+        self.num = num
         self.spiceName = spiceName
         if let colour = lightsColour {
             self.lightsColour = colour
