@@ -1,15 +1,17 @@
 //
-//  JarSettingsCell.swift
+//  JarSettingsNameCell.swift
 //  Spice Dispenser
 //
-//  Created by Rakesh Mandhan on 2017-10-09.
-//  Copyright © 2017 Rakesh Mandhan. All rights reserved.
+//  Created by Rakesh Mandhan on 2018-02-19.
+//  Copyright © 2018 Rakesh Mandhan. All rights reserved.
 //
 
 import UIKit
 
-class JarSettingsCell: UITableViewCell {
+class JarSettingsNameCell: UITableViewCell {
 
+    @IBOutlet weak var spiceNameTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,4 @@ class JarSettingsCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

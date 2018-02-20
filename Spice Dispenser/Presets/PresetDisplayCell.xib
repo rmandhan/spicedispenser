@@ -18,23 +18,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J1c-1X-ydW">
-                        <rect key="frame" x="12" y="8" width="70" height="70"/>
+                        <rect key="frame" x="10" y="10" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="HDR-XQ-Rqm"/>
                             <constraint firstAttribute="width" constant="70" id="Z5h-cN-N4P"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hFn-cQ-puh">
-                        <rect key="frame" x="97" y="10" width="268" height="67.5"/>
+                        <rect key="frame" x="95" y="10" width="270" height="67.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-z4-o88">
-                                <rect key="frame" x="0.0" y="0.0" width="268" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDg-dk-mOA">
-                                <rect key="frame" x="0.0" y="20.5" width="268" height="47"/>
+                                <rect key="frame" x="0.0" y="20.5" width="270" height="47"/>
                                 <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -46,8 +46,8 @@
                 <constraints>
                     <constraint firstItem="hFn-cQ-puh" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="NxA-0h-vKY"/>
                     <constraint firstItem="hFn-cQ-puh" firstAttribute="leading" secondItem="J1c-1X-ydW" secondAttribute="trailing" constant="15" id="USa-Az-OvK"/>
-                    <constraint firstItem="J1c-1X-ydW" firstAttribute="leading" secondItem="pKq-ai-T6w" secondAttribute="leading" constant="12" id="bRa-GL-Z6a"/>
-                    <constraint firstItem="J1c-1X-ydW" firstAttribute="centerY" secondItem="pKq-ai-T6w" secondAttribute="centerY" id="eBd-Sj-6ki"/>
+                    <constraint firstItem="J1c-1X-ydW" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="XnS-hT-Qbr"/>
+                    <constraint firstItem="J1c-1X-ydW" firstAttribute="leading" secondItem="pKq-ai-T6w" secondAttribute="leading" constant="10" id="bRa-GL-Z6a"/>
                     <constraint firstAttribute="bottom" secondItem="hFn-cQ-puh" secondAttribute="bottom" constant="10" id="k0G-jx-Oin"/>
                     <constraint firstAttribute="trailing" secondItem="hFn-cQ-puh" secondAttribute="trailing" constant="10" id="y5C-DE-PVq"/>
                 </constraints>

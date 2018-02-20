@@ -59,7 +59,7 @@ class DataManager {
     func createDefaultJars() {
         // Initialize default values - Note: must match defaults on the dispenser itself
         for i in 1...NUM_JARS {
-            let jar = Jar(num: i, spiceName: "Spice \(i)", lightsColour: nil, image: nil)
+            let jar = Jar(num: i, spiceName: "Spice \(i)", imageName: "default", lightsColour: nil)
             jars.append(jar)
         }
     }
@@ -94,7 +94,7 @@ class DataManager {
             smalls.append(data[i].smalls)
             bigs.append(data[i].bigs)
         }
-        newPreset = Preset(spiceNames: spiceNames, smalls: smalls, bigs: bigs)
+        newPreset = Preset(spiceNames: spiceNames, smalls: smalls, bigs: bigs, imageName: "default")
         presets.append(newPreset)
         defaults.set(presets, forKey: DataKey.presets.rawValue)
         NotificationCenter.default.post(name: .presetsUpdated, object: nil)

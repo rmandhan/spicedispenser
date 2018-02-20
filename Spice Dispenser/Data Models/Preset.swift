@@ -11,10 +11,16 @@ class Preset {
     let spiceNames: [String]
     let smallQuantities: [Int]
     let bigQuantities: [Int]
+    let imageName: String
     
-    init(spiceNames: [String], smalls: [Int], bigs: [Int]) {
+    init(spiceNames: [String], smalls: [Int], bigs: [Int], imageName: String?) {
         self.spiceNames = spiceNames
         self.smallQuantities = smalls
         self.bigQuantities = bigs
+        if let imgName = imageName {
+            self.imageName = imgName
+        } else {
+            self.imageName = "default"
+        }
     }
 }

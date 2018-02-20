@@ -54,7 +54,7 @@ class InitialViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segueToTabBarController") {
+        if segue.identifier == "segueToTabBarController" {
             // Do nothing right now
         }
     }
