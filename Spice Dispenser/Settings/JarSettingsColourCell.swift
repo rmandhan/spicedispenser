@@ -104,6 +104,7 @@ extension JarSettingsColourCell: UITextFieldDelegate {
             } else {
                 textField.text = text.uppercased()
             }
+            notifyDelegate()
         }
     }
     
@@ -114,7 +115,6 @@ extension JarSettingsColourCell: UITextFieldDelegate {
             let hexInt = strtol(text, nil, 16)
             let colour = UIColor.init(rgb: hexInt)
             setSlidersAndUpdateColour(colour: colour)
-            notifyDelegate()
             return true
         }
         return false

@@ -19,15 +19,27 @@ class SettingsViewController: UIViewController {
     var jarsData = [Jar]()
     var spiceImages = [String: UIImage]()
     var selectedJar: Int?
+    var dataUpdateTimeStamp: TimeInterval!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "app_title".localized
+        navigationItem.title = "app_title".localized
         tableView.delegate = self
         tableView.dataSource = self
-        self.jarsData = DataManager.shared.jars
+        jarsData = DataManager.shared.jars
+        dataUpdateTimeStamp = NSDate().timeIntervalSince1970
         loadSpiceImages()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Update data if it was changed
+        if DataManager.shared.jarsUpdateTimeStamp > dataUpdateTimeStamp {
+            jarsData = DataManager.shared.jars
+            loadSpiceImages()
+            dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+            tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,6 +48,7 @@ class SettingsViewController: UIViewController {
     }
     
     func loadSpiceImages() {
+        spiceImages = [String: UIImage]()
         // Synchronously load jar images
         let fileManager = FileManager.default
         for i in 0...(NUM_JARS-1) {

@@ -29,27 +29,38 @@ class DataManager {
     var dispenseItems: [DispenseItem]
     var presets: [Preset]
     
+    var jarsUpdateTimeStamp: TimeInterval
+    var configUpdateTimeStamp: TimeInterval
+    var presetsUpdateTimeStamp: TimeInterval
+    
     private init() {
         self.jars = [Jar]()
         self.dispenseItems = [DispenseItem]()
         self.presets = [Preset]()
         self.defaults = UserDefaults.standard
+        let time = NSDate().timeIntervalSince1970
+        self.jarsUpdateTimeStamp = time
+        self.configUpdateTimeStamp = time
+        self.presetsUpdateTimeStamp = time
     }
     
     func initializeData() {
-        if let jarsData = defaults.object(forKey: DataKey.jars.rawValue) as? [Jar] {
+        if let data = defaults.object(forKey: DataKey.jars.rawValue) as? Data,
+             let jarsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Jar] {
             jars = jarsData
         } else {
             createDefaultJars()
         }
         
-        if let presetsData = defaults.object(forKey: DataKey.presets.rawValue) as? [Preset] {
+        if let data = defaults.object(forKey: DataKey.presets.rawValue) as? Data,
+            let presetsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Preset] {
             presets = presetsData
         } else {
             // No default values to intialize
         }
         
-        if let dispenseData = defaults.object(forKey: DataKey.dispense.rawValue) as? [DispenseItem] {
+        if let data = defaults.object(forKey: DataKey.dispense.rawValue) as? Data,
+            let dispenseData = NSKeyedUnarchiver.unarchiveObject(with: data) as? [DispenseItem] {
             dispenseItems = dispenseData
         } else {
             createDefaultDispenseData()
@@ -72,16 +83,43 @@ class DataManager {
         }
     }
     
-    func saveJarData(jarData: [Jar]) {
-        self.jars = jarData
-        defaults.set(jarData, forKey: DataKey.jars.rawValue)
+    func updateConfig() {
+        for i in 0...NUM_JARS-1 {
+            dispenseItems[i].spiceName = jars[i].spiceName
+        }
+    }
+    
+    func saveDataForJar(jar: Jar) {
+        let jarIndex = jar.num - 1
+        jars[jarIndex] = jar
+        saveJars()
+    }
+    
+    func saveDataForJars(jarData: [Jar]) {
+        jars = jarData
+        saveJars()
+    }
+    
+    func saveJars() {
+        // Since Jars affect Dispense Items, update those and save them as well - this is not ideal...
+        updateConfig()
+        saveConfig()
+        let data = NSKeyedArchiver.archivedData(withRootObject: jars)
+        defaults.set(data, forKey: DataKey.jars.rawValue)
         NotificationCenter.default.post(name: .jarsUpdated, object: nil)
+        jarsUpdateTimeStamp = NSDate().timeIntervalSince1970
     }
     
     func saveDispenseConfig(config: [DispenseItem]) {
-        self.dispenseItems = config
-        defaults.set(config, forKey: DataKey.dispense.rawValue)
+        dispenseItems = config
+        saveConfig()
+    }
+    
+    func saveConfig() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: dispenseItems)
+        defaults.set(data, forKey: DataKey.dispense.rawValue)
         NotificationCenter.default.post(name: .spiceConfigUpdated, object: nil)
+        configUpdateTimeStamp = NSDate().timeIntervalSince1970
     }
     
     func addPresetFromDispenseData(data: [DispenseItem]) {
@@ -96,34 +134,36 @@ class DataManager {
         }
         newPreset = Preset(spiceNames: spiceNames, smalls: smalls, bigs: bigs, imageName: "default")
         presets.append(newPreset)
-        defaults.set(presets, forKey: DataKey.presets.rawValue)
-        NotificationCenter.default.post(name: .presetsUpdated, object: nil)
+        savePresets()
     }
     
     func removePresetAt(index: Int) {
         presets.remove(at: index)
-        defaults.set(presets, forKey: DataKey.presets.rawValue)
+        savePresets()
+    }
+    
+    func savePresets() {
+        let data = NSKeyedArchiver.archivedData(withRootObject: presets)
+        defaults.set(data, forKey: DataKey.presets.rawValue)
         NotificationCenter.default.post(name: .presetsUpdated, object: nil)
+        presetsUpdateTimeStamp = NSDate().timeIntervalSince1970
     }
     
     func resetJarData() {
         jars = [Jar]()
         createDefaultJars()
-        defaults.set(jars, forKey: DataKey.jars.rawValue)
-        NotificationCenter.default.post(name: .jarsUpdated, object: nil)
+        saveJars()
     }
     
     func resetDispenseConfig() {
         dispenseItems = [DispenseItem]()
         createDefaultDispenseData()
-        defaults.set(dispenseItems, forKey: DataKey.dispense.rawValue)
-        NotificationCenter.default.post(name: .spiceConfigUpdated, object: nil)
+        saveConfig()
     }
     
     func resetPresets() {
         presets = [Preset]()
-        defaults.set(presets, forKey: DataKey.presets.rawValue)
-        NotificationCenter.default.post(name: .presetsUpdated, object: nil)
+        savePresets()
     }
     
     func resetAllData() {

@@ -59,12 +59,12 @@ extension JarSettingsNameCell: UITextFieldDelegate {
             } else {
                 spiceName = textField.text
             }
+            notifyDelegate()
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        notifyDelegate()
         return true
     }
 }

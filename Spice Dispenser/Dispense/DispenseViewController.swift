@@ -18,6 +18,7 @@ class DispenseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var dispenseData: [DispenseItem] = []
+    var dataUpdateTimeStamp: TimeInterval!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,16 @@ class DispenseViewController: UIViewController {
         let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
         dispenseData = DataManager.shared.dispenseItems
+        dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if DataManager.shared.configUpdateTimeStamp > dataUpdateTimeStamp {
+            dispenseData = DataManager.shared.dispenseItems
+            dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+            tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +63,8 @@ class DispenseViewController: UIViewController {
 extension DispenseViewController : SpiceConfigurationDelegate {
     func dispenseItemDidUpdate(item: DispenseItem) {
         dispenseData[item.jar - 1] = item
+        DataManager.shared.saveDispenseConfig(config: dispenseData)
+        dataUpdateTimeStamp = NSDate().timeIntervalSince1970
     }
 }
 

@@ -99,19 +99,16 @@
                                                 <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ZE-bL-u1B">
                                                     <rect key="frame" x="10" y="1" width="20" height="40"/>
                                                     <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="XYO-pG-6L5"/>
-                                                    </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IdM-uS-uYw">
-                                                    <rect key="frame" x="30" y="1" width="40" height="40"/>
+                                                    <rect key="frame" x="40" y="1" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="QYN-TF-XXf"/>
                                                         <constraint firstAttribute="width" constant="40" id="udL-26-Mcd"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spice Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mco-X8-Pk9">
-                                                    <rect key="frame" x="80" y="11" width="252" height="21"/>
+                                                    <rect key="frame" x="90" y="11" width="242" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -125,7 +122,7 @@
                                                 <constraint firstItem="Mco-X8-Pk9" firstAttribute="centerY" secondItem="IdM-uS-uYw" secondAttribute="centerY" id="Vxc-UO-tJo"/>
                                                 <constraint firstItem="IdM-uS-uYw" firstAttribute="centerY" secondItem="lvt-VD-ZqT" secondAttribute="centerY" id="d7U-Wp-FsF"/>
                                                 <constraint firstItem="Mco-X8-Pk9" firstAttribute="leading" secondItem="IdM-uS-uYw" secondAttribute="trailing" constant="10" id="dCs-Al-0c8"/>
-                                                <constraint firstItem="IdM-uS-uYw" firstAttribute="leading" secondItem="5ZE-bL-u1B" secondAttribute="trailing" id="gCd-Cg-EnC"/>
+                                                <constraint firstItem="IdM-uS-uYw" firstAttribute="leading" secondItem="5ZE-bL-u1B" secondAttribute="trailing" constant="10" id="gCd-Cg-EnC"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mco-X8-Pk9" secondAttribute="trailing" constant="10" id="kd5-Me-pSw"/>
                                             </constraints>
                                         </tableViewCellContentView>

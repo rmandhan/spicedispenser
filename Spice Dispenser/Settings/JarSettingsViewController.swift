@@ -61,8 +61,35 @@ class JarSettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func saveImage() -> Bool {
+        // Save the image for realizies
+        if jar.imageName != "default" {
+            let fileManager = FileManager.default
+            // Load image
+            var imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(jar.imageName)
+            if fileManager.fileExists(atPath: imagePath) {
+                let image = UIImage(contentsOfFile: imagePath)
+                // Save it
+                let newImageName = "jar\(jar.num)"
+                imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(newImageName)
+                let data = UIImagePNGRepresentation(image!)
+                if (fileManager.createFile(atPath: imagePath, contents: data, attributes: nil)) {
+                    jar.imageName = newImageName
+                    return true
+                } else {
+                    print("Failed to save image")
+                }
+            }
+        }
+        return false
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        view.endEditing(true)
+        if saveImage() {
+            DataManager.shared.saveDataForJar(jar: jar)
+        }
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
