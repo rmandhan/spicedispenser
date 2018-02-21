@@ -29,4 +29,9 @@ class Jar {
             self.imageName = "default"
         }
     }
+    
+    func clone() -> Jar {
+        let copy = Jar(num: num, spiceName: spiceName, imageName: imageName, lightsColour: lightsColour)
+        return copy
+    }
 }

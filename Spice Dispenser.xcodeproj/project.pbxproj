@@ -19,6 +19,7 @@
 		143511162013D2B300FDD399 /* BluetoothSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511152013D2B300FDD399 /* BluetoothSerial.swift */; };
 		143511192013D51800FDD399 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143511182013D51800FDD399 /* ScannerViewController.swift */; };
 		1435111E20142BA200FDD399 /* SerialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1435111D20142BA100FDD399 /* SerialViewController.swift */; };
+		143FEBE1203CD2A600130D29 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143FEBE0203CD2A600130D29 /* UIColorExtension.swift */; };
 		144602151F81C94C0088A875 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 144602171F81C94C0088A875 /* Localizable.strings */; };
 		1446021B1F81C9C70088A875 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446021A1F81C9C70088A875 /* StringExtension.swift */; };
 		1474CC1A1F8C1A50001000EA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1474CC191F8C1A50001000EA /* MainTabBarController.swift */; };
@@ -55,6 +56,7 @@
 		143511152013D2B300FDD399 /* BluetoothSerial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothSerial.swift; sourceTree = "<group>"; };
 		143511182013D51800FDD399 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		1435111D20142BA100FDD399 /* SerialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialViewController.swift; sourceTree = "<group>"; };
+		143FEBE0203CD2A600130D29 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		144602161F81C94C0088A875 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		144602181F81C9510088A875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1446021A1F81C9C70088A875 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				1446021A1F81C9C70088A875 /* StringExtension.swift */,
+				143FEBE0203CD2A600130D29 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				14F02B6D202F7EF600073D06 /* JarSettingsViewController.swift in Sources */,
 				14E872DB1F801AD300F85829 /* AppDelegate.swift in Sources */,
 				14E872F51F801EAC00F85829 /* DispenseViewController.swift in Sources */,
+				143FEBE1203CD2A600130D29 /* UIColorExtension.swift in Sources */,
 				14E872F31F801E9F00F85829 /* SettingsViewController.swift in Sources */,
 				149F6BE6203B89890057F5DE /* JarSettingsNameCell.swift in Sources */,
 			);

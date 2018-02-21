@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
         if segue.identifier == "segueToJarSettingsController" {
             let settingsVC = segue.destination as! JarSettingsViewController
             if let jarNum = selectedJar {
-                settingsVC.jar = jarsData[jarNum]
+                settingsVC.jar = jarsData[jarNum].clone()
             }
         }
     }
@@ -93,9 +93,11 @@ extension SettingsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: JarNameCellIndentifier)!
         let imageView = cell.viewWithTag(1) as! UIImageView
         let spiceNameLabel = cell.viewWithTag(2) as! UILabel
+        let colourView = cell.viewWithTag(3)!
         let jar = jarsData[indexPath.row]
         spiceNameLabel.text = jar.spiceName
         imageView.image = spiceImages[jar.imageName]
+        colourView.backgroundColor = jar.lightsColour
         return cell
     }
 }
