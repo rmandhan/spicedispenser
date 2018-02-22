@@ -122,17 +122,17 @@ class DataManager {
         configUpdateTimeStamp = NSDate().timeIntervalSince1970
     }
     
-    func addPresetFromDispenseData(data: [DispenseItem]) {
+    func addPresetFromDispenseData(data: [DispenseItem], presetName: String) {
         var spiceNames = [String]()
         var smalls = [Int]()
         var bigs = [Int]()
         var newPreset: Preset!
-        for i in 0...NUM_JARS {
+        for i in 0...NUM_JARS-1 {
             spiceNames.append(data[i].spiceName)
             smalls.append(data[i].smalls)
             bigs.append(data[i].bigs)
         }
-        newPreset = Preset(spiceNames: spiceNames, smalls: smalls, bigs: bigs, imageName: "default")
+        newPreset = Preset(presetName: presetName, spiceNames: spiceNames, smalls: smalls, bigs: bigs, imageName: "default")
         presets.append(newPreset)
         savePresets()
     }

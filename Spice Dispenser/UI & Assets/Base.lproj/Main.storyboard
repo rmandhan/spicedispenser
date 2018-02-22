@@ -53,18 +53,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEp-bg-alj">
-                                <rect key="frame" x="30" y="74" width="315" height="40"/>
+                                <rect key="frame" x="10" y="74" width="355" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-9E-Dex">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth Connected" translatesAutoresizingMaskIntoConstraints="NO" id="3c0-9E-Dex">
                                         <rect key="frame" x="10" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="lpe-B8-Tx4"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0a1-ji-voi">
-                                        <rect key="frame" x="70" y="0.0" width="245" height="40"/>
-                                        <color key="backgroundColor" red="0.58618147545748733" green="0.86468027698904437" blue="0.96620899438858032" alpha="0.54770440924657537" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="60" y="0.0" width="295" height="40"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Connection Status">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -80,7 +80,7 @@
                                     <constraint firstItem="0a1-ji-voi" firstAttribute="centerY" secondItem="xEp-bg-alj" secondAttribute="centerY" id="Fka-kR-OBU"/>
                                     <constraint firstItem="0a1-ji-voi" firstAttribute="height" secondItem="xEp-bg-alj" secondAttribute="height" id="HeE-kJ-aFt"/>
                                     <constraint firstAttribute="height" constant="40" id="XaX-bA-QJ0"/>
-                                    <constraint firstItem="0a1-ji-voi" firstAttribute="leading" secondItem="3c0-9E-Dex" secondAttribute="trailing" constant="20" id="is4-3f-bom"/>
+                                    <constraint firstItem="0a1-ji-voi" firstAttribute="leading" secondItem="3c0-9E-Dex" secondAttribute="trailing" constant="10" id="is4-3f-bom"/>
                                     <constraint firstItem="3c0-9E-Dex" firstAttribute="height" secondItem="xEp-bg-alj" secondAttribute="height" id="neK-fi-jfY"/>
                                     <constraint firstItem="3c0-9E-Dex" firstAttribute="centerY" secondItem="xEp-bg-alj" secondAttribute="centerY" id="rlP-QO-A4U"/>
                                 </constraints>
@@ -136,12 +136,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="xEp-bg-alj" secondAttribute="trailing" constant="30" id="A9s-AI-yJU"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="xEp-bg-alj" secondAttribute="trailing" constant="10" id="A9s-AI-yJU"/>
                             <constraint firstItem="xEp-bg-alj" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="10" id="OMv-gV-4t9"/>
                             <constraint firstItem="xEp-bg-alj" firstAttribute="centerX" secondItem="PQr-Ze-W5v" secondAttribute="centerX" id="PAA-cV-Vvy"/>
                             <constraint firstItem="HWg-GC-DCj" firstAttribute="top" secondItem="xEp-bg-alj" secondAttribute="bottom" constant="10" id="UWK-l6-hvY"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="HWg-GC-DCj" secondAttribute="bottom" id="WR4-vC-e9B"/>
-                            <constraint firstItem="xEp-bg-alj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="30" id="fHm-NO-xxa"/>
+                            <constraint firstItem="xEp-bg-alj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="10" id="fHm-NO-xxa"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="HWg-GC-DCj" secondAttribute="trailing" id="qGr-0z-FBA"/>
                             <constraint firstItem="HWg-GC-DCj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="rYE-Vf-0Tz"/>
                         </constraints>
@@ -176,9 +176,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hv-4d-Jc9" userLabel="Presets">
                                         <rect key="frame" x="0.0" y="0.0" width="169.5" height="40"/>
                                         <color key="backgroundColor" red="1" green="0.7347164424245024" blue="0.43258908549895847" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Presets">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <state key="normal" title="Save Preset">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="presetsButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="JSX-5f-iGg"/>
@@ -187,9 +187,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjk-ku-N9B">
                                         <rect key="frame" x="185.5" y="0.0" width="169.5" height="40"/>
                                         <color key="backgroundColor" red="0.57576760859111054" green="0.96235281229019165" blue="0.62053070636367724" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Dispense">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="dispenseButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KDv-Ka-QF4"/>
@@ -609,4 +609,7 @@
             <point key="canvasLocation" x="2333.5999999999999" y="-630.13493253373315"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bluetooth Connected" width="128" height="128"/>
+    </resources>
 </document>

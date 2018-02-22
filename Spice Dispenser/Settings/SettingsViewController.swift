@@ -20,6 +20,7 @@ class SettingsViewController: UIViewController {
     var spiceImages = [String: UIImage]()
     var selectedJar: Int?
     var dataUpdateTimeStamp: TimeInterval!
+    let feedbackGenerator = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,8 @@ class SettingsViewController: UIViewController {
             dataUpdateTimeStamp = NSDate().timeIntervalSince1970
             tableView.reloadData()
         }
+        // Update view
+        updateBluetoothStateViews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,6 +67,31 @@ class SettingsViewController: UIViewController {
         spiceImages["default"] = UIImage(named: "Default Spices")
     }
     
+    func updateBluetoothStateViews() {
+        guard connectionStatusButton != nil && connectionStatusImage != nil else {
+            return
+        }
+        
+        // Update connection status image and text
+        if serial.isReady {
+            var name: String!
+            if serial.connectedPeripheral?.name != nil {
+                name = serial.connectedPeripheral!.name
+            } else {
+                name = "Device"
+            }
+            if serial.dispenserIsBusy {
+                connectionStatusButton.setTitle("\(name) is busy", for: .normal)
+            } else {
+                connectionStatusButton.setTitle("\(name) is connected", for: .normal)
+            }
+            connectionStatusImage.image = UIImage(named: "Bluetooth Connected")
+        } else {
+            connectionStatusButton.setTitle("No device connected", for: .normal)
+            connectionStatusImage.image = UIImage(named: "Bluetooth Disconnected")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToJarSettingsController" {
             let settingsVC = segue.destination as! JarSettingsViewController
@@ -78,6 +106,13 @@ class SettingsViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let scannerVC = storyboard.instantiateViewController(withIdentifier: "ScannerViewController")
         present(scannerVC, animated: true, completion: nil)
+        feedbackGenerator.selectionChanged()
+    }
+}
+
+extension SettingsViewController: MainTabBarDelegate {
+    func bluetoothStateChanged() {
+        updateBluetoothStateViews()
     }
 }
 

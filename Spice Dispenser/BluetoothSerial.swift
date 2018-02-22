@@ -51,6 +51,9 @@ protocol BluetoothSerialDelegate {
 
     /// Called when a peripheral is ready for communication
     func serialIsReady(_ peripheral: CBPeripheral)
+    
+    /// Called when device state changes
+    func deviceStateChanged()
 }
 
 // Make some of the delegate functions optional
@@ -63,6 +66,7 @@ extension BluetoothSerialDelegate {
     func serialDidConnect(_ peripheral: CBPeripheral) {}
     func serialDidFailToConnect(_ peripheral: CBPeripheral, error: NSError?) {}
     func serialIsReady(_ peripheral: CBPeripheral) {}
+    func deviceStateChanged() {}
 }
 
 
@@ -282,6 +286,7 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
         // send it to the delegate
         delegate.serialDidDisconnect(peripheral, error: error as NSError?)
+        delegate.deviceStateChanged()
         
         // invalidate timer
         stateTimer.invalidate()
@@ -303,6 +308,7 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
 
         // send it to the delegate
         delegate.serialDidChangeState()
+        delegate.deviceStateChanged()
     }
     
     
@@ -330,6 +336,7 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
                 
                 // notify the delegate we're ready for communication
                 delegate.serialIsReady(peripheral)
+                delegate.deviceStateChanged()
                 
                 // start the timer for checking dispenser state (every 2 seconds)
                 stateTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(pollDispenser), userInfo: nil, repeats: true)
@@ -351,10 +358,14 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
             delegate.serialDidReceiveString(str)
             // Check dispenser state - that's the only thing the dispenser ever sends
             print("Dispense state: \(str)")
+            let oldState = dispenserIsBusy
             if str == "0" {
                 dispenserIsBusy = false
             } else {
                 dispenserIsBusy = true
+            }
+            if oldState != dispenserIsBusy {
+                delegate.deviceStateChanged()
             }
         } else {
             print("Received an invalid string!")

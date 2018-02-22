@@ -24,7 +24,6 @@ class SpiceConfigurationCell: UITableViewCell {
     @IBOutlet weak var volumeSelectionButton: UIButton!
     @IBOutlet weak var quantityStepper: UIStepper!
     
-    let feedbackGenerator = UISelectionFeedbackGenerator()
     var delegate: SpiceConfigurationDelegate!
     var volumeState : DispenseVolume!
     var data: DispenseItem! {
@@ -32,6 +31,7 @@ class SpiceConfigurationCell: UITableViewCell {
             setupCell()
         }
     }
+    let feedbackGenerator = UISelectionFeedbackGenerator()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -119,6 +119,7 @@ class SpiceConfigurationCell: UITableViewCell {
         setVolumneButtonTitle()
         changeQuantitiesAndUpdateStepper()
         updateQuantityLabel()
+        notifyDelegate()
         feedbackGenerator.selectionChanged()
     }
     

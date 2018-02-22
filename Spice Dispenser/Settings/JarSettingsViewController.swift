@@ -88,6 +88,15 @@ class JarSettingsViewController: UIViewController {
         view.endEditing(true)
         if saveImage() {
             DataManager.shared.saveDataForJar(jar: jar)
+            if serial.setLights(jar: jar) && serial.setSpiceName(jar: jar) {
+                
+            } else {
+                // Show popup
+                let alert = UIAlertController(title: "Unable to Send Data", message: "Please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                alert.addAction(dismissAction)
+                present(alert, animated: true, completion: nil)
+            }
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -112,18 +121,6 @@ extension JarSettingsViewController: JarSettingsDelegate {
 }
 
 extension JarSettingsViewController: UITableViewDelegate {
-    
-}
-
-extension JarSettingsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             // 0 is Spice Name Cell
@@ -141,6 +138,16 @@ extension JarSettingsViewController: UITableViewDataSource {
         } else {
             assertionFailure("Invalid index path for jar settings cell")
         }
+    }
+}
+
+extension JarSettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -10,49 +10,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Preset Display Cell" id="ZMi-4s-Qb8" customClass="PresetDisplayCell" customModule="Spice_Dispenser" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Preset Display Cell" rowHeight="80" id="ZMi-4s-Qb8" customClass="PresetDisplayCell" customModule="Spice_Dispenser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZMi-4s-Qb8" id="pKq-ai-T6w">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J1c-1X-ydW">
-                        <rect key="frame" x="10" y="10" width="70" height="70"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="HDR-XQ-Rqm"/>
-                            <constraint firstAttribute="width" constant="70" id="Z5h-cN-N4P"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hFn-cQ-puh">
-                        <rect key="frame" x="95" y="10" width="270" height="67.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-z4-o88">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDg-dk-mOA">
-                                <rect key="frame" x="0.0" y="20.5" width="270" height="47"/>
-                                <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Preset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgA-Dk-nET" userLabel="Preset Name">
+                        <rect key="frame" x="10" y="10" width="355" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Spice Configuration" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDW-KT-fn3" userLabel="Spice Configuration">
+                        <rect key="frame" x="10" y="36" width="355" height="33.5"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hFn-cQ-puh" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="NxA-0h-vKY"/>
-                    <constraint firstItem="hFn-cQ-puh" firstAttribute="leading" secondItem="J1c-1X-ydW" secondAttribute="trailing" constant="15" id="USa-Az-OvK"/>
-                    <constraint firstItem="J1c-1X-ydW" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="XnS-hT-Qbr"/>
-                    <constraint firstItem="J1c-1X-ydW" firstAttribute="leading" secondItem="pKq-ai-T6w" secondAttribute="leading" constant="10" id="bRa-GL-Z6a"/>
-                    <constraint firstAttribute="bottom" secondItem="hFn-cQ-puh" secondAttribute="bottom" constant="10" id="k0G-jx-Oin"/>
-                    <constraint firstAttribute="trailing" secondItem="hFn-cQ-puh" secondAttribute="trailing" constant="10" id="y5C-DE-PVq"/>
+                    <constraint firstItem="wgA-Dk-nET" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="AyK-w6-HM3"/>
+                    <constraint firstItem="zDW-KT-fn3" firstAttribute="leading" secondItem="wgA-Dk-nET" secondAttribute="leading" id="COR-0G-l0f"/>
+                    <constraint firstAttribute="trailing" secondItem="zDW-KT-fn3" secondAttribute="trailing" constant="10" id="N4g-Hi-tvV"/>
+                    <constraint firstItem="zDW-KT-fn3" firstAttribute="top" secondItem="wgA-Dk-nET" secondAttribute="bottom" constant="5" id="hap-rr-fUf"/>
+                    <constraint firstItem="wgA-Dk-nET" firstAttribute="leading" secondItem="pKq-ai-T6w" secondAttribute="leading" constant="10" id="p4q-SU-7sj"/>
+                    <constraint firstAttribute="bottom" secondItem="zDW-KT-fn3" secondAttribute="bottom" constant="10" id="t1o-t4-yDR"/>
+                    <constraint firstAttribute="trailing" secondItem="wgA-Dk-nET" secondAttribute="trailing" constant="10" id="tac-KB-k1Z"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="196.5" y="117"/>
+            <connections>
+                <outlet property="presetNameLabel" destination="wgA-Dk-nET" id="999-xK-90e"/>
+                <outlet property="spiceConfigLabel" destination="zDW-KT-fn3" id="65Y-8l-bQu"/>
+            </connections>
+            <point key="canvasLocation" x="196.5" y="113"/>
         </tableViewCell>
     </objects>
 </document>

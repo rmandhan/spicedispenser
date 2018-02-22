@@ -9,6 +9,10 @@
 import UIKit
 import CoreBluetooth
 
+protocol MainTabBarDelegate {
+    func bluetoothStateChanged()
+}
+
 class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -32,7 +36,7 @@ class MainTabBarController: UITabBarController {
     }
     
     func configureTabBar() {
-        if let barItems = self.tabBar.items {
+        if let barItems = tabBar.items {
             if (barItems.count == 3) {
                 barItems[0].title = "settings_tab".localized
                 barItems[0].image = UIImage(named: "Settings")
@@ -82,5 +86,18 @@ extension MainTabBarController: BluetoothSerialDelegate {
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
         // Do nothing
+    }
+    
+    func deviceStateChanged() {
+        guard let controllers = viewControllers else { return }
+        for controller in controllers {
+            if let nvc = controller as? UINavigationController, let vc = nvc.topViewController {
+                if let followsProtocol = vc as? MainTabBarDelegate {
+                    followsProtocol.bluetoothStateChanged()
+                }
+            } else if let followsProtocol = controller as? MainTabBarDelegate {
+                followsProtocol.bluetoothStateChanged()
+            }
+        }
     }
 }

@@ -19,6 +19,7 @@ class DispenseViewController: UIViewController {
     
     var dispenseData: [DispenseItem] = []
     var dataUpdateTimeStamp: TimeInterval!
+    let feedbackGenerator = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +47,31 @@ class DispenseViewController: UIViewController {
     }
     
     @IBAction func presetsButtonTapped(_ sender: Any) {
-        DataManager.shared.addPresetFromDispenseData(data: dispenseData)
-        // Show popup
+        let alert = UIAlertController(title: "Save Preset", message: "What would you like to name your preset?", preferredStyle: .alert)
+        let saveButton = UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            let textField = alert.textFields![0] as UITextField
+            if var text = textField.text, text.count > 0 {
+                if text.count > 30 {
+                    text = String(text.prefix(30))
+                }
+                DataManager.shared.addPresetFromDispenseData(data: self.dispenseData, presetName: text)
+            } else {
+                // Use current date time as the name
+                let dateFormatter : DateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+                let date = Date()
+                let dateString = dateFormatter.string(from: date)
+                DataManager.shared.addPresetFromDispenseData(data: self.dispenseData, presetName: dateString)
+            }
+        })
+        let cancelButton = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Preset Name"
+        }
+        alert.addAction(cancelButton)
+        alert.addAction(saveButton)
+        present(alert, animated: true, completion: nil)
+        feedbackGenerator.selectionChanged()
     }
     
     @IBAction func dispenseButtonTapped(_ sender: Any) {
@@ -56,7 +80,12 @@ class DispenseViewController: UIViewController {
             // Show animaation for funzies
         } else {
             // Show popup
+            let alert = UIAlertController(title: "Unable to Send Data", message: "Please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(dismissAction)
+            present(alert, animated: true, completion: nil)
         }
+        feedbackGenerator.selectionChanged()
     }
 }
 
