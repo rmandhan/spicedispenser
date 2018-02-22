@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="-199" y="95"/>
         </scene>
-        <!--Recipes-->
+        <!--Presets-->
         <scene sceneID="nyH-Kg-rRW">
             <objects>
-                <viewController title="Recipes" id="zo8-0S-kDe" customClass="PresetsViewController" customModule="Spice_Dispenser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Recipes" id="zo8-0S-kDe" userLabel="Presets" customClass="PresetsViewController" customModule="Spice_Dispenser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSb-IY-CM0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -290,12 +290,21 @@
                                     <outlet property="delegate" destination="zo8-0S-kDe" id="SLH-23-Jtk"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Presets Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRt-1v-8Xs">
+                                <rect key="frame" x="0.0" y="330.5" width="375" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6yu-cD-kGn" firstAttribute="leading" secondItem="u3p-37-hLO" secondAttribute="leading" id="40w-zh-Vf0"/>
                             <constraint firstItem="u3p-37-hLO" firstAttribute="trailing" secondItem="6yu-cD-kGn" secondAttribute="trailing" id="90H-DQ-R0S"/>
                             <constraint firstItem="u3p-37-hLO" firstAttribute="bottom" secondItem="6yu-cD-kGn" secondAttribute="bottom" id="DQw-8x-goH"/>
+                            <constraint firstItem="PRt-1v-8Xs" firstAttribute="width" secondItem="LSb-IY-CM0" secondAttribute="width" id="R04-jO-ggo"/>
+                            <constraint firstItem="PRt-1v-8Xs" firstAttribute="centerX" secondItem="u3p-37-hLO" secondAttribute="centerX" id="T0c-Zv-0yt"/>
+                            <constraint firstItem="PRt-1v-8Xs" firstAttribute="centerY" secondItem="u3p-37-hLO" secondAttribute="centerY" id="XUu-ET-8Ew"/>
                             <constraint firstItem="6yu-cD-kGn" firstAttribute="top" secondItem="u3p-37-hLO" secondAttribute="top" id="ZEX-hf-Dyf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u3p-37-hLO"/>
@@ -303,6 +312,7 @@
                     <tabBarItem key="tabBarItem" title="" id="YsQ-kF-mMj"/>
                     <navigationItem key="navigationItem" id="kNF-ex-jAH"/>
                     <connections>
+                        <outlet property="noResultsLabel" destination="PRt-1v-8Xs" id="TGS-ai-I9V"/>
                         <outlet property="tableView" destination="6yu-cD-kGn" id="0gG-iO-A8g"/>
                     </connections>
                 </viewController>
@@ -396,6 +406,12 @@
                                     <outlet property="delegate" destination="Oyp-83-LuI" id="ngh-DR-a7z"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Devices Found" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJ3-W9-MOy" userLabel="No Devices Found">
+                                <rect key="frame" x="-0.5" y="333" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="9bD-TP-goP">
                                 <rect key="frame" x="138" y="75" width="20" height="20"/>
                                 <constraints>
@@ -414,9 +430,12 @@
                             <constraint firstItem="uyr-h4-I7B" firstAttribute="leading" secondItem="dAC-DB-lMu" secondAttribute="leading" id="MWS-8g-QC0"/>
                             <constraint firstItem="9bD-TP-goP" firstAttribute="centerY" secondItem="rMO-AL-zbi" secondAttribute="centerY" id="SL3-4p-oYk"/>
                             <constraint firstItem="rMO-AL-zbi" firstAttribute="top" secondItem="HSM-QO-2dO" secondAttribute="bottom" constant="10" id="U9K-eO-5IP"/>
+                            <constraint firstItem="hJ3-W9-MOy" firstAttribute="width" secondItem="IRp-j1-vmx" secondAttribute="width" id="UrV-kL-4SL"/>
                             <constraint firstItem="dAC-DB-lMu" firstAttribute="trailing" secondItem="uyr-h4-I7B" secondAttribute="trailing" id="aJg-0l-JsQ"/>
+                            <constraint firstItem="hJ3-W9-MOy" firstAttribute="centerX" secondItem="dAC-DB-lMu" secondAttribute="centerX" id="cmh-Ds-5Fv"/>
                             <constraint firstItem="uyr-h4-I7B" firstAttribute="top" secondItem="rMO-AL-zbi" secondAttribute="bottom" constant="10" id="e0P-RZ-Gys"/>
                             <constraint firstItem="rMO-AL-zbi" firstAttribute="leading" secondItem="dAC-DB-lMu" secondAttribute="leading" constant="15" id="mFO-m1-xsN"/>
+                            <constraint firstItem="hJ3-W9-MOy" firstAttribute="centerY" secondItem="dAC-DB-lMu" secondAttribute="centerY" id="mlH-9G-DE1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dAC-DB-lMu"/>
                     </view>
@@ -424,6 +443,7 @@
                         <outlet property="activityIndicator" destination="9bD-TP-goP" id="gTU-Pw-NFa"/>
                         <outlet property="cancelButton" destination="WdU-k7-uF5" id="nZz-3S-BW5"/>
                         <outlet property="navigationBar" destination="HSM-QO-2dO" id="8LX-hP-L7O"/>
+                        <outlet property="noResultsLabel" destination="hJ3-W9-MOy" id="dT5-cj-hd5"/>
                         <outlet property="refreshButton" destination="ShO-KW-f96" id="gY9-hH-7OE"/>
                         <outlet property="tableView" destination="uyr-h4-I7B" id="4Mb-aA-Vb5"/>
                     </connections>

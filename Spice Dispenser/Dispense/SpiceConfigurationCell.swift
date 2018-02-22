@@ -103,7 +103,7 @@ class SpiceConfigurationCell: UITableViewCell {
             data.bigs = Int(count)
             delegate.dispenseItemDidUpdate(item: data)
         } else {
-            let count = quantityStepper.value / tableSpoonStep
+            let count = quantityStepper.value / teaSpoonStep
             data.smalls = Int(count)
             data.bigs = 0
             delegate.dispenseItemDidUpdate(item: data)

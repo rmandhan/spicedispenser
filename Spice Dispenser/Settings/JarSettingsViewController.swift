@@ -37,6 +37,7 @@ class JarSettingsViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
+        tableView.tableFooterView = UIView()
         
         // Register nibs
         var nib = UINib(nibName: "JarSettingsNameCell", bundle: nil)
@@ -46,8 +47,8 @@ class JarSettingsViewController: UIViewController {
         nib = UINib(nibName: "JarSettingsImageCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: JarSettingsImageCellIdentifier)
         
-        // Add gesture for dimissing keyboard
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(dismissKeyboard))
+        // Add gesture to end editing when user taps outside the focus
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(endEditing))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -57,7 +58,7 @@ class JarSettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc func dismissKeyboard() {
+    @objc func endEditing() {
         view.endEditing(true)
     }
     

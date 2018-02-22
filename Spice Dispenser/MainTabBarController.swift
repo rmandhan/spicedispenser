@@ -11,6 +11,24 @@ import CoreBluetooth
 
 protocol MainTabBarDelegate {
     func bluetoothStateChanged()
+    func loadPreset(preset: Preset)
+}
+
+// Make all functions optional for this protocol
+extension MainTabBarDelegate {
+    func bluetoothStateChanged() {}
+    func loadPreset(preset: Preset) {}
+}
+
+protocol TabsCommunicationDelegate {
+    func switchTabTo(tab: TabType)
+    func loadPreset(preset: Preset)
+}
+
+enum TabType {
+    case Settings
+    case Dispense
+    case Presets
 }
 
 class MainTabBarController: UITabBarController {
@@ -70,6 +88,33 @@ class MainTabBarController: UITabBarController {
     
 }
 
+extension MainTabBarController: TabsCommunicationDelegate {
+    func switchTabTo(tab: TabType) {
+        switch tab {
+        case .Settings:
+            selectedIndex = 0
+            break
+        case .Dispense:
+            selectedIndex = 1
+            break
+        case .Presets:
+            selectedIndex = 2
+            break
+        }
+    }
+    
+    func loadPreset(preset: Preset) {
+        if let vcs = viewControllers, vcs.count == 3 {
+            if let nvc = vcs[1] as? UINavigationController, let vc = nvc.topViewController {
+                if let dispenseVC = vc as? MainTabBarDelegate {
+                    selectedIndex = 1
+                    dispenseVC.loadPreset(preset: preset)
+                }
+            }
+        }
+    }
+}
+
 extension MainTabBarController: BluetoothSerialDelegate {
     func serialDidChangeState() {
         if serial.isPoweredOn {
@@ -95,8 +140,6 @@ extension MainTabBarController: BluetoothSerialDelegate {
                 if let followsProtocol = vc as? MainTabBarDelegate {
                     followsProtocol.bluetoothStateChanged()
                 }
-            } else if let followsProtocol = controller as? MainTabBarDelegate {
-                followsProtocol.bluetoothStateChanged()
             }
         }
     }

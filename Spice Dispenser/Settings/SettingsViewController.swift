@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
         navigationItem.title = "app_title".localized
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         jarsData = DataManager.shared.jars
         dataUpdateTimeStamp = NSDate().timeIntervalSince1970
         loadSpiceImages()

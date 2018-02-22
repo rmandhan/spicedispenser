@@ -26,6 +26,7 @@ class DispenseViewController: UIViewController {
         self.navigationItem.title = "app_title".localized
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
         dispenseData = DataManager.shared.dispenseItems
@@ -89,7 +90,57 @@ class DispenseViewController: UIViewController {
     }
 }
 
-extension DispenseViewController : SpiceConfigurationDelegate {
+extension DispenseViewController: MainTabBarDelegate {
+    func loadPreset(preset: Preset) {
+        // Reset all quantities first
+        for i in 0...dispenseData.count-1 {
+            dispenseData[i].smalls = 0
+            dispenseData[i].bigs = 0
+        }
+        // Iterate through all spice names in the preset
+        var atLeastOneNotFound = false
+        for i in 0...preset.spiceNames.count-1 {
+            let spiceName = preset.spiceNames[i]
+            let small = preset.smallQuantities[i]
+            let big = preset.bigQuantities[i]
+            // Check if spice exists (name could have changed)
+            var spiceFound = false
+            for j in 0...dispenseData.count-1 {
+                if dispenseData[j].spiceName == spiceName {
+                    if (small > 0) {
+                        dispenseData[j].smalls = small
+                        dispenseData[j].bigs = 0
+                    } else if (big > 0) {
+                        dispenseData[j].smalls = 0
+                        dispenseData[j].bigs = big
+                    } else {
+                        dispenseData[i].smalls = 0
+                        dispenseData[j].bigs = 0
+                    }
+                    spiceFound = true
+                    break
+                }
+            }
+            if !spiceFound {
+                atLeastOneNotFound = true
+            }
+        }
+        
+        // Save config and reload data
+        DataManager.shared.saveDispenseConfig(config: dispenseData)
+        dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+        tableView.reloadData()
+        
+        if atLeastOneNotFound {
+            let alert = UIAlertController(title: "Spices Mismatch", message: "One or more spices from the preset were not found", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(dismissAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+extension DispenseViewController: SpiceConfigurationDelegate {
     func dispenseItemDidUpdate(item: DispenseItem) {
         dispenseData[item.jar - 1] = item
         DataManager.shared.saveDispenseConfig(config: dispenseData)
@@ -97,11 +148,11 @@ extension DispenseViewController : SpiceConfigurationDelegate {
     }
 }
 
-extension DispenseViewController : UITableViewDelegate {
+extension DispenseViewController: UITableViewDelegate {
     
 }
 
-extension DispenseViewController : UITableViewDataSource {
+extension DispenseViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

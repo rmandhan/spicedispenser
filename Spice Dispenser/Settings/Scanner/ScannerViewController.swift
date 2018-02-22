@@ -15,6 +15,7 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noResultsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     var peripherals: [(peripheral: CBPeripheral, RSSI: Float)] = []
@@ -24,8 +25,18 @@ class ScannerViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         serial.delegate = self
         startScanning()
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
+        if peripherals.count == 0 {
+            noResultsLabel.isHidden = false
+        } else {
+            noResultsLabel.isHidden = true
+        }
     }
     
     @IBAction func stopButtonTapped(_ sender: Any) {
@@ -37,7 +48,7 @@ class ScannerViewController: UIViewController {
     @IBAction func refreshButtonTapped(_ sender: Any) {
         if (!serial.isScanning) {
             peripherals = []
-            tableView.reloadData()
+            reloadData()
             startScanning()
         }
     }
@@ -82,7 +93,7 @@ extension ScannerViewController: BluetoothSerialDelegate {
         let theRSSI = RSSI?.floatValue ?? 0.0
         peripherals.append((peripheral: peripheral, RSSI: theRSSI))
         peripherals.sort { $0.RSSI < $1.RSSI }
-        tableView.reloadData()
+        reloadData()
         
         print("Discovered perhipheral with name: \(peripheral.name!)")
     }
@@ -98,7 +109,7 @@ extension ScannerViewController: BluetoothSerialDelegate {
         tableView.isUserInteractionEnabled = true
         DispatchQueue.main.async {
             self.peripherals = []
-            self.tableView.reloadData()
+            self.reloadData()
         }
         startScanning()
         print("Device disconnect")
