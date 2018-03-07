@@ -22,6 +22,7 @@ class SpiceConfigurationCell: UITableViewCell {
     @IBOutlet weak var spiceNameLabel: UILabel!
     @IBOutlet weak var spiceQuantityLabel: UILabel!
     @IBOutlet weak var volumeSelectionButton: UIButton!
+    @IBOutlet weak var volumeImageView: UIImageView!
     @IBOutlet weak var quantityStepper: UIStepper!
     
     var delegate: SpiceConfigurationDelegate!
@@ -63,6 +64,7 @@ class SpiceConfigurationCell: UITableViewCell {
         }
         setVolumneButtonTitle()
         updateQuantityLabel()
+        updateVolumeImage()
     }
     
     func setVolumneButtonTitle() {
@@ -96,6 +98,14 @@ class SpiceConfigurationCell: UITableViewCell {
         spiceQuantityLabel.text = String.init(format: "%.2f", quantityStepper.value)
     }
     
+    func updateVolumeImage() {
+        if (volumeState == .tableSpoon) {
+            self.volumeImageView.image = UIImage(named: "Table")
+        } else {
+            self.volumeImageView.image = UIImage(named: "Tea")
+        }
+    }
+    
     func notifyDelegate() {
         if (volumeState == .tableSpoon) {
             let count = quantityStepper.value / tableSpoonStep
@@ -116,10 +126,19 @@ class SpiceConfigurationCell: UITableViewCell {
         } else {
             volumeState = .tableSpoon
         }
-        setVolumneButtonTitle()
-        changeQuantitiesAndUpdateStepper()
-        updateQuantityLabel()
-        notifyDelegate()
+        // Note: This is unsafe but...
+        UIView.transition(with: contentView,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            self.setVolumneButtonTitle()
+                            self.changeQuantitiesAndUpdateStepper()
+                            self.updateQuantityLabel()
+                            self.updateVolumeImage()
+                          },
+                          completion: { (finished: Bool) in
+                            self.notifyDelegate()
+                          })
         feedbackGenerator.selectionChanged()
     }
     

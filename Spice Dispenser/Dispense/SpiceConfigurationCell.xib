@@ -18,8 +18,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Pepper" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w8-I0-y0P">
-                        <rect key="frame" x="10" y="5" width="106" height="24"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <rect key="frame" x="10" y="5" width="104" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,13 +42,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziM-Ob-f9y">
-                        <rect key="frame" x="80.5" y="53.5" width="90" height="32"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <state key="normal" title="Table Spoon"/>
+                        <rect key="frame" x="107.5" y="53.5" width="93" height="32"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16.5"/>
+                        <state key="normal" title="Table Spoon">
+                            <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="volumeButtonTapped:" destination="6SW-Hb-Z5Y" eventType="touchUpInside" id="Rua-N0-W4G"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Table" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-jx-SQF">
+                        <rect key="frame" x="80.5" y="57.5" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="V22-q0-A6A"/>
+                            <constraint firstAttribute="height" constant="22" id="c5f-WJ-ZMR"/>
+                        </constraints>
+                    </imageView>
                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="L6c-Oj-QUt">
                         <rect key="frame" x="271" y="27" width="94" height="29"/>
                         <constraints>
@@ -64,14 +73,16 @@
                     <constraint firstItem="lnQ-vi-UwL" firstAttribute="leading" secondItem="gzr-yH-BdT" secondAttribute="trailing" constant="5" id="2La-eI-wDh"/>
                     <constraint firstAttribute="trailing" secondItem="L6c-Oj-QUt" secondAttribute="trailing" constant="10" id="8tQ-37-adW"/>
                     <constraint firstItem="L6c-Oj-QUt" firstAttribute="centerY" secondItem="Bne-2w-JGa" secondAttribute="centerY" id="NDv-Kf-ani"/>
+                    <constraint firstItem="ziM-Ob-f9y" firstAttribute="leading" secondItem="hKf-jx-SQF" secondAttribute="trailing" constant="5" id="PUW-B7-mbA"/>
                     <constraint firstItem="OYa-1t-MXs" firstAttribute="leading" secondItem="gzr-yH-BdT" secondAttribute="leading" id="Rr1-DG-r9T"/>
                     <constraint firstItem="gzr-yH-BdT" firstAttribute="top" secondItem="4w8-I0-y0P" secondAttribute="bottom" constant="3" id="SXh-gQ-wdM"/>
                     <constraint firstItem="OYa-1t-MXs" firstAttribute="top" secondItem="gzr-yH-BdT" secondAttribute="bottom" constant="5" id="Wna-km-Ten"/>
+                    <constraint firstItem="hKf-jx-SQF" firstAttribute="leading" secondItem="OYa-1t-MXs" secondAttribute="trailing" constant="5" id="YeZ-8Z-r2T"/>
                     <constraint firstItem="ziM-Ob-f9y" firstAttribute="centerY" secondItem="OYa-1t-MXs" secondAttribute="centerY" constant="1" id="am7-wb-BmI"/>
                     <constraint firstAttribute="bottom" secondItem="OYa-1t-MXs" secondAttribute="bottom" constant="5" id="lWl-j6-brN"/>
                     <constraint firstItem="4w8-I0-y0P" firstAttribute="top" secondItem="Bne-2w-JGa" secondAttribute="top" constant="5" id="leM-PX-Vx8"/>
+                    <constraint firstItem="hKf-jx-SQF" firstAttribute="centerY" secondItem="OYa-1t-MXs" secondAttribute="centerY" id="pIK-Oe-DP1"/>
                     <constraint firstItem="lnQ-vi-UwL" firstAttribute="centerY" secondItem="gzr-yH-BdT" secondAttribute="centerY" id="qMe-jz-LSu"/>
-                    <constraint firstItem="ziM-Ob-f9y" firstAttribute="leading" secondItem="OYa-1t-MXs" secondAttribute="trailing" constant="5" id="tgi-et-QHb"/>
                     <constraint firstItem="4w8-I0-y0P" firstAttribute="leading" secondItem="Bne-2w-JGa" secondAttribute="leading" constant="10" id="vSu-9w-lpX"/>
                     <constraint firstItem="gzr-yH-BdT" firstAttribute="leading" secondItem="4w8-I0-y0P" secondAttribute="leading" id="vfQ-i1-xFv"/>
                 </constraints>
@@ -80,9 +91,13 @@
                 <outlet property="quantityStepper" destination="L6c-Oj-QUt" id="bE6-zB-xen"/>
                 <outlet property="spiceNameLabel" destination="4w8-I0-y0P" id="sZ9-98-g5U"/>
                 <outlet property="spiceQuantityLabel" destination="lnQ-vi-UwL" id="FQn-I0-1jJ"/>
+                <outlet property="volumeImageView" destination="hKf-jx-SQF" id="y9I-0L-NVY"/>
                 <outlet property="volumeSelectionButton" destination="ziM-Ob-f9y" id="UXm-OZ-9uG"/>
             </connections>
             <point key="canvasLocation" x="96.5" y="39.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Table" width="128" height="128"/>
+    </resources>
 </document>

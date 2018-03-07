@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 let SpiceConfigCellIdentifier = "Spice Config Cell"
 
@@ -19,6 +20,7 @@ class DispenseViewController: UIViewController {
     
     var dispenseData: [DispenseItem] = []
     var dataUpdateTimeStamp: TimeInterval!
+    var dispenseAnimationView: LOTAnimationView!
     let feedbackGenerator = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class DispenseViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         addTableViewHeader()
+        setupAnimationView()
         let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
         dispenseData = DataManager.shared.dispenseItems
@@ -54,6 +57,30 @@ class DispenseViewController: UIViewController {
         let line = UIView(frame: frame)
         tableView.tableHeaderView = line
         line.backgroundColor = self.tableView.separatorColor
+    }
+    
+    func setupAnimationView() {
+        dispenseAnimationView = LOTAnimationView(name: "gears")
+        dispenseAnimationView.frame = CGRect(x: 0, y: 0, width: 220, height: 220)
+        dispenseAnimationView.center = view.center
+        dispenseAnimationView.contentMode = .scaleAspectFill
+        dispenseAnimationView.loopAnimation = true
+    }
+    
+    func presentAlertWith(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(dismissAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func presentDispenseAnimation() {
+        self.definesPresentationContext = true;
+        let presentedController = LottieAnimationViewController()
+        presentedController.animationView = dispenseAnimationView
+        presentedController.modalPresentationStyle = .overCurrentContext
+        presentedController.modalTransitionStyle = .crossDissolve
+        present(presentedController, animated: true, completion: nil)
     }
     
     @IBAction func presetsButtonTapped(_ sender: Any) {
@@ -88,16 +115,11 @@ class DispenseViewController: UIViewController {
         // Attemp to dispense
         if serial.dispense(items: dispenseData) {
             // Show animaation for funzies
-            let alert = UIAlertController(title: "Dispense Successful", message: "Spices are now dispensing", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-            alert.addAction(dismissAction)
-            present(alert, animated: true, completion: nil)
+            presentDispenseAnimation()
         } else {
             // Show popup
-            let alert = UIAlertController(title: "Unable to Send Data", message: "Please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-            alert.addAction(dismissAction)
-            present(alert, animated: true, completion: nil)
+            presentDispenseAnimation()
+//            presentAlertWith(title: "Unable to Send Data", msg: "Please check connection with device or wait until the dispenser is done dispensing")
         }
         feedbackGenerator.selectionChanged()
     }

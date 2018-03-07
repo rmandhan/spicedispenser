@@ -18,25 +18,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Preset Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgA-Dk-nET" userLabel="Preset Name">
-                        <rect key="frame" x="10" y="10" width="355" height="23"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                        <rect key="frame" x="10" y="5" width="355" height="24"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Spice Configuration" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDW-KT-fn3" userLabel="Spice Configuration">
-                        <rect key="frame" x="10" y="38" width="355" height="31.5"/>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                        <rect key="frame" x="10" y="34" width="355" height="40.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wgA-Dk-nET" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="10" id="AyK-w6-HM3"/>
+                    <constraint firstItem="wgA-Dk-nET" firstAttribute="top" secondItem="pKq-ai-T6w" secondAttribute="top" constant="5" id="AyK-w6-HM3"/>
                     <constraint firstItem="zDW-KT-fn3" firstAttribute="leading" secondItem="wgA-Dk-nET" secondAttribute="leading" id="COR-0G-l0f"/>
                     <constraint firstAttribute="trailing" secondItem="zDW-KT-fn3" secondAttribute="trailing" constant="10" id="N4g-Hi-tvV"/>
                     <constraint firstItem="zDW-KT-fn3" firstAttribute="top" secondItem="wgA-Dk-nET" secondAttribute="bottom" constant="5" id="hap-rr-fUf"/>
                     <constraint firstItem="wgA-Dk-nET" firstAttribute="leading" secondItem="pKq-ai-T6w" secondAttribute="leading" constant="10" id="p4q-SU-7sj"/>
-                    <constraint firstAttribute="bottom" secondItem="zDW-KT-fn3" secondAttribute="bottom" constant="10" id="t1o-t4-yDR"/>
+                    <constraint firstAttribute="bottom" secondItem="zDW-KT-fn3" secondAttribute="bottom" constant="5" id="t1o-t4-yDR"/>
                     <constraint firstAttribute="trailing" secondItem="wgA-Dk-nET" secondAttribute="trailing" constant="10" id="tac-KB-k1Z"/>
                 </constraints>
             </tableViewCellContentView>
