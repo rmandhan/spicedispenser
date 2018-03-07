@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140A2EB7204F992400FDD319 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A2EB6204F992400FDD319 /* UIImageExtension.swift */; };
 		1414FDC1202C0B9800C1E145 /* Jar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC0202C0B9800C1E145 /* Jar.swift */; };
 		1414FDC3202C0BCE00C1E145 /* DispenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */; };
 		1414FDC5202C0BDD00C1E145 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1414FDC4202C0BDD00C1E145 /* Preset.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		052155EDCA6D3F5FDDA76903 /* Pods-Spice Dispenser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spice Dispenser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spice Dispenser/Pods-Spice Dispenser.debug.xcconfig"; sourceTree = "<group>"; };
+		140A2EB6204F992400FDD319 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		1414FDC0202C0B9800C1E145 /* Jar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jar.swift; sourceTree = "<group>"; };
 		1414FDC2202C0BCE00C1E145 /* DispenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenseItem.swift; sourceTree = "<group>"; };
 		1414FDC4202C0BDD00C1E145 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				1446021A1F81C9C70088A875 /* StringExtension.swift */,
 				143FEBE0203CD2A600130D29 /* UIColorExtension.swift */,
+				140A2EB6204F992400FDD319 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				14E872F91F801FCB00F85829 /* InitialViewController.swift in Sources */,
 				1414FDC1202C0B9800C1E145 /* Jar.swift in Sources */,
+				140A2EB7204F992400FDD319 /* UIImageExtension.swift in Sources */,
 				14281359203005EB00AC7101 /* JSONManager.swift in Sources */,
 				142A4E5C1F8C27FE00D2BD14 /* SpiceConfigurationCell.swift in Sources */,
 				149F6BEA203B89A20057F5DE /* JarSettingsColourCell.swift in Sources */,

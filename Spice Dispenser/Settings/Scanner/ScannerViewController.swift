@@ -26,6 +26,7 @@ class ScannerViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        addTableViewHeader()
         serial.delegate = self
         startScanning()
     }
@@ -37,6 +38,14 @@ class ScannerViewController: UIViewController {
         } else {
             noResultsLabel.isHidden = true
         }
+    }
+    
+    func addTableViewHeader() {
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)
+        let line = UIView(frame: frame)
+        tableView.tableHeaderView = line
+        line.backgroundColor = self.tableView.separatorColor
     }
     
     @IBAction func stopButtonTapped(_ sender: Any) {

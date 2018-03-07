@@ -8,7 +8,7 @@
 
 import UIKit
 
-let NUM_JARS = 6
+let NUM_JARS = 4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

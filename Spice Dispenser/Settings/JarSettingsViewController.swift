@@ -93,7 +93,7 @@ class JarSettingsViewController: UIViewController {
                 
             } else {
                 // Show popup
-                let alert = UIAlertController(title: "Unable to Send Data", message: "Please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Unable to Send Data", message: "Data was saved, but not sent to the dispenser - please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
                 let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
                 alert.addAction(dismissAction)
                 present(alert, animated: true, completion: nil)

@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
         tableView.tableFooterView = UIView()
         jarsData = DataManager.shared.jars
         dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+        addTableViewHeader()
         loadSpiceImages()
     }
     
@@ -49,6 +50,14 @@ class SettingsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addTableViewHeader() {
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)
+        let line = UIView(frame: frame)
+        tableView.tableHeaderView = line
+        line.backgroundColor = self.tableView.separatorColor
     }
     
     func loadSpiceImages() {
@@ -73,23 +82,26 @@ class SettingsViewController: UIViewController {
             return
         }
         
-        // Update connection status image and text
+        // Update UI
         if serial.isReady {
-            var name: String!
-            if serial.connectedPeripheral?.name != nil {
-                name = serial.connectedPeripheral!.name
+            var name: String
+            if let perph = serial.connectedPeripheral, let deviceName = perph.name {
+                name = deviceName
             } else {
                 name = "Device"
             }
             if serial.dispenserIsBusy {
                 connectionStatusButton.setTitle("\(name) is busy", for: .normal)
+                connectionStatusButton.backgroundColor = UIColor(hexString: "#FFD479");
             } else {
                 connectionStatusButton.setTitle("\(name) is connected", for: .normal)
+                connectionStatusButton.backgroundColor = UIColor(hexString: "#54DE81");
             }
             connectionStatusImage.image = UIImage(named: "Bluetooth Connected")
         } else {
             connectionStatusButton.setTitle("No device connected", for: .normal)
             connectionStatusImage.image = UIImage(named: "Bluetooth Disconnected")
+            connectionStatusButton.backgroundColor = UIColor(hexString: "#04C6FF");
         }
     }
     
@@ -135,18 +147,18 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44;
+        return 88;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: JarNameCellIndentifier)!
         let imageView = cell.viewWithTag(1) as! UIImageView
         let spiceNameLabel = cell.viewWithTag(2) as! UILabel
-        let colourView = cell.viewWithTag(3)!
+        let colourImageView = cell.viewWithTag(3)! as! UIImageView
         let jar = jarsData[indexPath.row]
         spiceNameLabel.text = jar.spiceName
         imageView.image = spiceImages[jar.imageName]
-        colourView.backgroundColor = jar.lightsColour
+        colourImageView.image = UIImage.from(color: jar.lightsColour)
         return cell
     }
 }

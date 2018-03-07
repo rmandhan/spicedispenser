@@ -27,6 +27,7 @@ class DispenseViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        addTableViewHeader()
         let nib = UINib(nibName: "SpiceConfigurationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SpiceConfigCellIdentifier)
         dispenseData = DataManager.shared.dispenseItems
@@ -45,6 +46,14 @@ class DispenseViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addTableViewHeader() {
+        let px = 1 / UIScreen.main.scale
+        let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)
+        let line = UIView(frame: frame)
+        tableView.tableHeaderView = line
+        line.backgroundColor = self.tableView.separatorColor
     }
     
     @IBAction func presetsButtonTapped(_ sender: Any) {
@@ -79,6 +88,10 @@ class DispenseViewController: UIViewController {
         // Attemp to dispense
         if serial.dispense(items: dispenseData) {
             // Show animaation for funzies
+            let alert = UIAlertController(title: "Dispense Successful", message: "Spices are now dispensing", preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(dismissAction)
+            present(alert, animated: true, completion: nil)
         } else {
             // Show popup
             let alert = UIAlertController(title: "Unable to Send Data", message: "Please check connection with device or wait until the dispenser is done dispensing", preferredStyle: .alert)
@@ -162,7 +175,7 @@ extension DispenseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44;
+        return 84;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
