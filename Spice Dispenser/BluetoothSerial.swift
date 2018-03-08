@@ -226,20 +226,20 @@ final class BluetoothSerial: NSObject, CBCentralManagerDelegate, CBPeripheralDel
     
     func setLights(jar: Jar) -> Bool {
         guard isReady else { return false }
-    
+
         if let msg = JSONManager.shared.lights(jar: jar) {
             sendMessageToDevice(msg)
         } else {
             print("Lights JSON creation failure, unable to send message to device")
             return false
         }
-    
+
         return true
     }
     
     func setSpiceName(jar: Jar) -> Bool {
         guard isReady else { return false }
-        
+
         if let msg = JSONManager.shared.spiceName(jar: jar) {
             sendMessageToDevice(msg)
         } else {

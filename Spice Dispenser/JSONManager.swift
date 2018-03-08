@@ -56,7 +56,7 @@ class JSONManager {
         colour = [(Int)(r*255), (Int)(g*255), (Int)(b*255), (Int)(a*255)]
         
         dict.setValue(JSONKeys.lights.rawValue, forKey: JSONKeys.type.rawValue)
-        dict.setValue(jar.num, forKey: JSONKeys.jar.rawValue)
+        dict.setValue(jar.num-1, forKey: JSONKeys.jar.rawValue)
         dict.setValue(colour, forKey: JSONKeys.colour.rawValue)
         
         do {
@@ -73,7 +73,7 @@ class JSONManager {
         
         dict.removeAllObjects()
         dict.setValue(JSONKeys.name.rawValue, forKey: JSONKeys.type.rawValue)
-        dict.setValue(jar.num, forKey: JSONKeys.jar.rawValue)
+        dict.setValue(jar.num-1, forKey: JSONKeys.jar.rawValue)     // Use jar-1 because Arduino is 0-mapped
         dict.setValue(jar.spiceName, forKey: JSONKeys.name.rawValue)
         
         do {

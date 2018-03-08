@@ -76,6 +76,7 @@ class SpiceConfigurationCell: UITableViewCell {
     }
     
     func changeQuantitiesAndUpdateStepper() {
+        // TODO: Figure out the math - not convering properly
         // Must convert before changing max and step value
         var convertedValue = 0.0
         

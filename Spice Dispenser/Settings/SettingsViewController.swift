@@ -83,6 +83,7 @@ class SettingsViewController: UIViewController {
         }
         
         // Update UI
+        // TODO: Update dynamically
         if serial.isReady {
             var name: String
             if let perph = serial.connectedPeripheral, let deviceName = perph.name {
