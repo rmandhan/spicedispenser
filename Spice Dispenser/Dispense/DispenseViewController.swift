@@ -51,6 +51,34 @@ class DispenseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Use shaking to reset spices to 0
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            presetResetConfigAlert()
+        }
+    }
+    
+    func presetResetConfigAlert() {
+        let alert = UIAlertController(title: "Reset Configuration", message: "Would you like to reset all the spices to zero?", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+            self.resetConfig()
+        }
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func resetConfig() {
+        for item in dispenseData {
+            item.smalls = 0;
+            item.bigs = 0;
+        }
+        DataManager.shared.saveDispenseConfig(config: dispenseData)
+        dataUpdateTimeStamp = NSDate().timeIntervalSince1970
+        tableView.reloadData()
+    }
+    
     func addTableViewHeader() {
         let px = 1 / UIScreen.main.scale
         let frame = CGRect(x: 0, y: 0, width: self.tableView.frame.size.width, height: px)
@@ -118,8 +146,7 @@ class DispenseViewController: UIViewController {
             presentDispenseAnimation()
         } else {
             // Show popup
-            presentDispenseAnimation()
-//            presentAlertWith(title: "Unable to Send Data", msg: "Please check connection with device or wait until the dispenser is done dispensing")
+            presentAlertWith(title: "Unable to Send Data", msg: "Please check connection with device or wait until the dispenser is done dispensing")
         }
         feedbackGenerator.selectionChanged()
     }

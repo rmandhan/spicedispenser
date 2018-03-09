@@ -68,7 +68,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         let value = info[UIKeyboardFrameEndUserInfoKey] as! NSValue
         let keyboardFrame = value.cgRectValue
         
-        //TODO: Not animating properly
+        // TODO: Not animating properly
         UIView.animate(withDuration: 1, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
             self.bottomConstraint.constant = keyboardFrame.size.height
             }, completion: { Bool -> Void in

@@ -83,26 +83,27 @@ class SettingsViewController: UIViewController {
         }
         
         // Update UI
-        // TODO: Update dynamically
-        if serial.isReady {
-            var name: String
-            if let perph = serial.connectedPeripheral, let deviceName = perph.name {
-                name = deviceName
+        DispatchQueue.main.async {
+            if serial.isReady {
+                var name: String
+                if let perph = serial.connectedPeripheral, let deviceName = perph.name {
+                    name = deviceName
+                } else {
+                    name = "Device"
+                }
+                if serial.dispenserIsBusy {
+                    self.connectionStatusButton.setTitle("\(name) is busy", for: .normal)
+                    self.connectionStatusButton.backgroundColor = UIColor(hexString: "#FFD479");
+                } else {
+                    self.connectionStatusButton.setTitle("\(name) is connected", for: .normal)
+                    self.connectionStatusButton.backgroundColor = UIColor(hexString: "#54DE81");
+                }
+                self.connectionStatusImage.image = UIImage(named: "Bluetooth Connected")
             } else {
-                name = "Device"
+                self.connectionStatusButton.setTitle("No device connected", for: .normal)
+                self.connectionStatusImage.image = UIImage(named: "Bluetooth Disconnected")
+                self.connectionStatusButton.backgroundColor = UIColor(hexString: "#04C6FF");
             }
-            if serial.dispenserIsBusy {
-                connectionStatusButton.setTitle("\(name) is busy", for: .normal)
-                connectionStatusButton.backgroundColor = UIColor(hexString: "#FFD479");
-            } else {
-                connectionStatusButton.setTitle("\(name) is connected", for: .normal)
-                connectionStatusButton.backgroundColor = UIColor(hexString: "#54DE81");
-            }
-            connectionStatusImage.image = UIImage(named: "Bluetooth Connected")
-        } else {
-            connectionStatusButton.setTitle("No device connected", for: .normal)
-            connectionStatusImage.image = UIImage(named: "Bluetooth Disconnected")
-            connectionStatusButton.backgroundColor = UIColor(hexString: "#04C6FF");
         }
     }
     

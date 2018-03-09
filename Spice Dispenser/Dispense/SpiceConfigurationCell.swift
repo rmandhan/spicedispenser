@@ -81,13 +81,13 @@ class SpiceConfigurationCell: UITableViewCell {
         var convertedValue = 0.0
         
         if (volumeState == .tableSpoon) {
-            // Converting from table spoon to tea spoon
-            convertedValue = (quantityStepper.value / 3.0) - (quantityStepper.value / 3.0).truncatingRemainder(dividingBy: teaSpoonStep)
+            // Converting from tea spoon to table spoon
+            convertedValue = (quantityStepper.value / 3.0) - (quantityStepper.value / 3.0).truncatingRemainder(dividingBy: tableSpoonStep)
             quantityStepper.maximumValue = tableSpoonMax
             quantityStepper.stepValue = tableSpoonStep
         } else {
-            // Converting from tea spoon to table spoon
-            convertedValue = (quantityStepper.value * 3.0) - (quantityStepper.value * 3.0).truncatingRemainder(dividingBy: tableSpoonStep)
+            // Converting from table spoon to tea spoon
+            convertedValue = (quantityStepper.value * 3.0) - (quantityStepper.value * 3.0).truncatingRemainder(dividingBy: teaSpoonStep)
             quantityStepper.maximumValue = teaSpoonMax
             quantityStepper.stepValue = teaSpoonStep
         }
