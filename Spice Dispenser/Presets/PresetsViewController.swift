@@ -25,7 +25,7 @@ class PresetsViewController: UIViewController {
         view.isUserInteractionEnabled = true
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         tableView.tableFooterView = UIView()
         

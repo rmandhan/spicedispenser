@@ -35,7 +35,7 @@ class JarSettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44
         tableView.tableFooterView = UIView()
         
@@ -73,7 +73,7 @@ class JarSettingsViewController: UIViewController {
                 // Save it
                 let newImageName = "jar\(jar.num)"
                 imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(newImageName)
-                let data = UIImagePNGRepresentation(image!)
+                let data = image!.pngData()
                 if (fileManager.createFile(atPath: imagePath, contents: data, attributes: nil)) {
                     jar.imageName = newImageName
                     return true

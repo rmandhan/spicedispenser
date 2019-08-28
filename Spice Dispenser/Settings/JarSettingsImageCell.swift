@@ -64,7 +64,7 @@ class JarSettingsImageCell: UITableViewCell, UINavigationControllerDelegate {
     func alertPromptToAllowCameraAccessViaSettings() {
         let alert = UIAlertController(title: "Camera Access Required", message: "Please grant permission to use the Camera to be able to take pictures", preferredStyle: .alert )
         alert.addAction(UIAlertAction(title: "Open Settings", style: .cancel) { alert in
-            if let appSettingsURL = URL(string: UIApplicationOpenSettingsURLString) {
+            if let appSettingsURL = URL(string: UIApplication.openSettingsURLString) {
                 if UIApplication.shared.canOpenURL(appSettingsURL) {
                     UIApplication.shared.open(appSettingsURL, completionHandler: nil)
                 }
@@ -91,7 +91,7 @@ class JarSettingsImageCell: UITableViewCell, UINavigationControllerDelegate {
         guard let image = self.capturedImage else { return }
         let fileManager = FileManager.default
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(name)
-        let data = UIImagePNGRepresentation(image)
+        let data = image.pngData()
         if (fileManager.createFile(atPath: imagePath, contents: data, attributes: nil)) {
             imageName = name
             notifyDelegate()
@@ -133,10 +133,23 @@ class JarSettingsImageCell: UITableViewCell, UINavigationControllerDelegate {
 }
 
 extension JarSettingsImageCell: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         imagePickerController.dismiss(animated: true, completion: nil)
-        capturedImage = info[UIImagePickerControllerEditedImage] as? UIImage
+        capturedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage
         spiceImageView.image = capturedImage
         saveImageWithName(name: String.init(format: "temp%d", jarNum))
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

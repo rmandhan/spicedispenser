@@ -52,7 +52,7 @@ class DispenseViewController: UIViewController {
     }
     
     // Use shaking to reset spices to 0
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             presetResetConfigAlert()
         }
